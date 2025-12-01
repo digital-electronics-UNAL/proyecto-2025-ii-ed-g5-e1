@@ -1,4 +1,4 @@
-module compt( clk_1, columns , rows, num);
+module compt( clk_1, columns, rows, num);
 
 input clk_1;
 input [3:0] columns;
@@ -53,9 +53,9 @@ begin
     else if(rows == 4'b0001)
     begin
         case(columns)
-            4'b1000: begin num = 4'b1110; end
+            4'b1000: begin num = 4'b1110; end // * es 14 decimal
             4'b0100: begin num = 4'b0000; end
-            4'b0010: begin num = 4'b1110; end
+            4'b0010: begin num = 4'b1111; end // # es 15 decimal
             4'b0001: begin num = 4'b1101; end
             default: begin
                 num = 4'b1111;
