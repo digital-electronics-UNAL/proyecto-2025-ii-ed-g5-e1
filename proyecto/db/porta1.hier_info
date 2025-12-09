@@ -1,0 +1,93 @@
+|tecladoejtop
+clk => clk.IN1
+columns[0] => columns[0].IN1
+columns[1] => columns[1].IN1
+columns[2] => columns[2].IN1
+columns[3] => columns[3].IN1
+rows[0] => rows[0].IN2
+rows[1] => rows[1].IN2
+rows[2] => rows[2].IN2
+rows[3] => rows[3].IN2
+nume[0] <= compt:comp.num
+nume[1] <= compt:comp.num
+nume[2] <= compt:comp.num
+nume[3] <= compt:comp.num
+
+
+|tecladoejtop|div_f:div
+clk => clk_1~reg0.CLK
+clk => cont[0].CLK
+clk => cont[1].CLK
+clk => cont[2].CLK
+clk => cont[3].CLK
+clk => cont[4].CLK
+clk => cont[5].CLK
+clk => cont[6].CLK
+clk => cont[7].CLK
+clk => cont[8].CLK
+clk => cont[9].CLK
+clk => cont[10].CLK
+clk => cont[11].CLK
+clk => cont[12].CLK
+clk => cont[13].CLK
+clk => cont[14].CLK
+clk => cont[15].CLK
+clk => cont[16].CLK
+clk => cont[17].CLK
+clk => cont[18].CLK
+clk => cont[19].CLK
+clk => cont[20].CLK
+clk => cont[21].CLK
+clk => cont[22].CLK
+clk => cont[23].CLK
+clk => cont[24].CLK
+clk => cont[25].CLK
+clk => cont[26].CLK
+clk => cont[27].CLK
+clk_1 <= clk_1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|tecladoejtop|swept:sp
+clk_1 => cont[0].CLK
+clk_1 => cont[1].CLK
+clk_1 => rows[0]~reg0.CLK
+clk_1 => rows[1]~reg0.CLK
+clk_1 => rows[2]~reg0.CLK
+clk_1 => rows[3]~reg0.CLK
+rows[0] <= rows[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rows[1] <= rows[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rows[2] <= rows[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rows[3] <= rows[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|tecladoejtop|compt:comp
+clk_1 => num[0]~reg0.CLK
+clk_1 => num[1]~reg0.CLK
+clk_1 => num[2]~reg0.CLK
+clk_1 => num[3]~reg0.CLK
+columns[0] => Decoder0.IN3
+columns[1] => Decoder0.IN2
+columns[2] => Decoder0.IN1
+columns[3] => Decoder0.IN0
+rows[0] => Equal0.IN3
+rows[0] => Equal1.IN3
+rows[0] => Equal2.IN3
+rows[0] => Equal3.IN0
+rows[1] => Equal0.IN2
+rows[1] => Equal1.IN2
+rows[1] => Equal2.IN0
+rows[1] => Equal3.IN3
+rows[2] => Equal0.IN1
+rows[2] => Equal1.IN0
+rows[2] => Equal2.IN2
+rows[2] => Equal3.IN2
+rows[3] => Equal0.IN0
+rows[3] => Equal1.IN1
+rows[3] => Equal2.IN1
+rows[3] => Equal3.IN1
+num[0] <= num[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num[1] <= num[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num[2] <= num[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+num[3] <= num[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
