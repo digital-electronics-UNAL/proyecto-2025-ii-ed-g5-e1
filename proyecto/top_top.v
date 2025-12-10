@@ -1,21 +1,22 @@
 module top_top #(parameter cona = 4693)(
-input clk;
-input [3:0] columns;
-input [3:0] rows;
-input boton; //pulsador de adentro
-input reed; //sensor magnetico
-output pos_sel; //del servo
-input resetl;
-input ready_i;
-
-input   reset,  //reset de solo el ultrasonido
+input clk,
+input [3:0] columns,
+input [3:0] rows,
+input boton, //pulsador de adentro
+input reed, //sensor magnetico
+output pos_sel, //del servo
+input resetl, //del LCD
+input ready_i,
+input resett,
+input   reset,  //reset del ultrasonido, y concatenado DE TODO EL PROCESO DE LA FIR
 input   echo,        // Señal del sensor (ECHO)
 output reg  trigger, // Señal de disparo (TRIGGER)
 
-output buzz; //buzzer de alerta, debe ser un reg en su cajita
+output buzz, //buzzer de alerta, debe ser un reg en su cajita
 
-output servo; //servomotor debe ser un reg en su cajita
+output pwmservo, //señal de control al servomotor
 
+output reg p, //fuente de las resistencias pull up para teclado
     
 output reg rs,       
 output reg rw,
@@ -24,51 +25,58 @@ output reg [DATA_BITS-1:0] data
 
 );
 
-wire nume;
-wire [15:0] dista;
-
-ultrasonico_hcsr04 ultra(.clk(clk), .reset(reset), .echo(echo), .trigger(trigger), .distancia_cm(dista))
-
-  always @(posedge clk) begin
-        if (dista <10 ) begin 
-            u <= 1; 
-        end else if (dista >= 10 ) begin
-            u <= 0;
-            end 
-       
-    end
 
 
-wire [3:0] nume1;
-
-tecladoejtop teclas (.clk(clk), .columns(columns), .rows(rows), .nume(nume1));
-
-reg [6:0] SSeg,
-
-  always @ ( * ) begin
-    case (nume1)
-      4'b0000: SSeg = 2'h30; // "0"  
-  	  4'b0001: SSeg = 2'h31; // "1" 
-  	  4'b0010: SSeg = 2'h32; // "2" 
-  	  4'b0011: SSeg = 2'h33; // "3" 
-  	  4'b0100: SSeg = 2'h34; // "4" 
-  	  4'b0101: SSeg = 2'h35; // "5" 
-  	  4'b0110: SSeg = 2'h36; // "6" 
-  	  4'b0111: SSeg = 2'h37; // "7" 
-  	  4'b1000: SSeg = 2'h38; // "8"  
-  	  4'b1001: SSeg = 2'h39; // "9" 
-      4'ha: SSeg = 2'h41;   //A
-      4'hb: SSeg = 2'h42;   //B
-      4'hc: SSeg = 2'h43;   //C
-      4'hd: SSeg = 2'h44;   //D
-      4'he: SSeg = 2'h2a;   //*
-      4'hf: SSeg = 2'h23;   //#
-       default: SSeg = 2'h30;
-    endcase
-  end
 
 
-LCD1602_controller lcd(.clk(clk), .reset(resetl), .ready_i(ready_i), .in1(SSeg), .vis1(vis1), .rs(rs), .rw(rw), .enable(enable), .data(data))
+//del ultrasonido:
+
+wire u;
+
+hcsr04_distancia ultra (
+     .clk(clk),          
+    .rst(reset),        
+    .echo(echo),         
+     .trigger(trigger),  
+     .salida(u)       
+);
+
+//del servomotor:
+
+
+servo_control servom(.clk(clk), .pos_sel(pos_sel), .servo_pwm(pwmservo));
+
+
+
+
+
+
+
+
+
+
+//del teclado y codifica:
+
+wire [3:0] dig1;
+
+teclado teclas(.clk(clk), .rst(resett), .column(columns), .row(rows), .digito(dig1), .key_detected(), .p(p) );
+
+codahexa codes(.digdec(dig1), .dighex(digitoalcd)); //el que entra a la lcd
+
+//la lcd:
+
+
+
+//LCD1602_controller lcd(.clk(clk), .reset(resetl), .ready_i(ready_i), .in1(SSeg), .vis1(vis1), .rs(rs), .rw(rw), .enable(enable), .data(data))
+
+
+
+//hasta aqui la lcd
+
+
+
+
+
 
 
 
@@ -82,22 +90,22 @@ localparam STATE1 = 3'b001;
 localparam STATE2 = 3'b010;
 localparam STATE3 = 3'b011;
 localparam STATE4 = 3'b100;
-localparam STATEP = 3'b101;
-localparam STATE6 = 3'b110;
-localparam STATE7 = 3'b111;
+localparam STATEP = 3'b101; //hasta aqui
+//localparam STATE6 = 3'b110;
+//localparam STATE7 = 3'b111;
 
 reg [2:0] fsm_state;//el estado presente. el que va a saltar entre los valores de localparam
 reg [2:0] next_state;
 
 reg [1:0] j;
 
-initial begin
+/*initial begin
     fsm_state <= IDLE;
     buzz <= 0
     pos_sel <= 0
     //hacer un beginin para lo mostrado en la LCD
     j=2'b00
-end
+end */
 
 
 
@@ -105,7 +113,7 @@ end
 always @(*) begin
     case(fsm_state)
         IDLE: begin //estado inicial
-            next_state <= (u)? STATE1 : IDLE;
+            next_state <= (u)? STATE1 : (boton)? STATE3 : IDLE;
         end
 
         STATE1: begin 
@@ -113,7 +121,7 @@ always @(*) begin
         end
 
         STATE2:begin
-			next_state <= (nume11 == cona)? STATE3 : (u==0)? IDLE: STATE2; //eso de "cona", que es el parametro, es ilustrativo. se debe hacer nume11 que almacene temporalmente el ingreso por teclado
+			next_state <= (nume11 == cona)? STATE3 : (u==0)? IDLE: (j==2'b10)?  STATEP :  STATE2 ; //eso de "cona", que es el parametro, es ilustrativo. se debe hacer nume11 que almacene temporalmente el ingreso por teclado
         end
 
         STATE3: begin 
@@ -133,7 +141,7 @@ always @(*) begin
 end
 
 always @(posedge clk) begin
-    if (reset == 0) begin
+    if (reset == 0) begin //ver si esto es con logica negada. Si dejarlo asi, o con reset==1
         buzz <= 0;
         pos_sel <= 1;
 		j <= 2'b00;
@@ -144,36 +152,36 @@ always @(posedge clk) begin
                 buzz <= 0
                 pos_sel <= 0
                 //lcd <= " "
-                vis1 <= 20 20 20 20 20 20 
+                mns <= 20 
 
             end
             STATE1: begin
                 buzz <= 0
                 pos_sel <= 0
-                //lcd <= "ingrese perfil seguido de *"
-                vis1 <= 69 6e 67 72 65 73 65 20 70 65 72 66 69 6c 20 79 20 2a
+                // esc<= algo
+                mns <= 2'b00 //texto estatico
             end
             STATE2: begin
                 buzz <= 0
                 pos_sel <= 0
-                //lcd <= "digite contraseña seguido de *"
+               // esc<=algo
                 j=j + 2'b01
-                vis1 <= 64 69 67 69 746520636f6e7472617365c3b161207365677569646f206465202a
+                mns <= 2'b01 //texto estatico
             end
             STATE3: begin
                 buzz <= 0
                 pos_sel <= 1
-                //lcd <= "Abierto"
+                mns <= 2'b10 //texto estatico
             end
 			STATE4: begin
                 buzz <= 0
                 pos_sel <= 1
-                //lcd <= "Abierto"
+                mns <= 2'b10 //texto estatico
             end
 			STATEP: begin
                 buzz <= 1
                 pos_sel <= 0
-                //lcd <= "Intruso"
+                mns <= 2'b11 //texto estatico
                 j=2'b00
             end
 
