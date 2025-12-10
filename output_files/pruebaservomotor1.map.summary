@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Dec 10 00:02:49 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : pruebaservomotor1
+Top-level Entity Name : servo_control
+Family : Cyclone IV E
+Total logic elements : 41
+    Total combinational functions : 40
+    Dedicated logic registers : 23
+Total registers : 23
+Total pins : 3
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
