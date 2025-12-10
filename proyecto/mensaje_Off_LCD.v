@@ -1,11 +1,12 @@
-module mensaje_LCD #(parameter NUM_COMMANDS = 4, 
+module mensaje_Off_LCD #(parameter  NUM_COMMANDS = 4, 
                                 NUM_DATA = 16,  // Solo linea 1
                                 DATA_BITS = 8,
                                 COUNT_MAX = 800000)(
     input clk,            
     input reset,
-    input ready_i,          
-    input [3:0] mns,      //Seleccionar mensaje
+    input ready_i,
+    input distancia,      //Viene de ultrasonido    
+    input [1:0] mns,      //Seleccionar mensaje
     output reg rs,        //Register select: comando o dato   
     output reg rw,        //Read/Write
     output enable,    
@@ -13,33 +14,38 @@ module mensaje_LCD #(parameter NUM_COMMANDS = 4,
 );
 
 // Definir los estados de la FSM
-localparam IDLE = 2'b00;
-localparam CONFIG_CMD = 2'b01;
-localparam WR_TEXT = 2'b10;
-localparam CHANGE_MNS = 2'b11;
+localparam APAGADO = 3'b000;
+localparam IDLE = 3'b001;
+localparam CONFIG_CMD = 3'b010;
+localparam WR_TEXT = 3'b011;
+localparam CHANGE_MNS = 3'b100;
 
 reg [1:0] fsm_state;
 reg [1:0] next_state;
 reg clk_16ms;
 
 // Comandos de configuración del LCD
+localparam DISPLAY_OFF = 8'h08;
 localparam CLEAR_DISPLAY = 8'h01;
 localparam SHIFT_CURSOR_RIGHT = 8'h06;
 localparam DISPON_CURSOROFF = 8'h0C;
 localparam LINES2_MATRIX5x8_MODE8bit = 8'h38;
 
-// Contador para el div frec, comandos y datos
+// Contadores para el div frec, comandos y datos
 reg [$clog2(COUNT_MAX)-1:0] clk_counter;
 reg [$clog2(NUM_COMMANDS):0] command_counter;
 reg [$clog2(NUM_DATA):0] data_counter;
 
 // Registro para detectar cambio en mns
-reg [3:0] mns_prev;
+reg [1:0] mns_prev;
+reg Apagar;
 
 // Banco de registros para comandos y datos
 reg [DATA_BITS-1:0] config_mem [0:NUM_COMMANDS-1]; 
-reg [DATA_BITS-1:0] mensaje1 [0:NUM_DATA-1];
-reg [DATA_BITS-1:0] mensaje2 [0:NUM_DATA-1];
+reg [DATA_BITS-1:0] mensaje0 [0:NUM_DATA-1]; //Usario
+reg [DATA_BITS-1:0] mensaje1 [0:NUM_DATA-1]; //Clave
+reg [DATA_BITS-1:0] mensaje2 [0:NUM_DATA-1]; //Abierto
+reg [DATA_BITS-1:0] mensaje3 [0:NUM_DATA-1]; //Intruso
 
 // Inicialización
 initial begin
@@ -51,48 +57,85 @@ initial begin
     dat <= 8'b0;
     clk_16ms <= 1'b0;
     clk_counter <= 'b0;
-    mns_prev <= 4'b0;
+    mns_prev <= 2'b0;
+    Apagar <= 1'b0;
     
     config_mem[0] <= LINES2_MATRIX5x8_MODE8bit;
     config_mem[1] <= SHIFT_CURSOR_RIGHT;
     config_mem[2] <= DISPON_CURSOROFF;
     config_mem[3] <= CLEAR_DISPLAY;
     
-    // Mensaje 1
-    mensaje1[0]  <= "M";
-    mensaje1[1]  <= "E";
-    mensaje1[2]  <= "N";
-    mensaje1[3]  <= "S";
-    mensaje1[4]  <= "A";
-    mensaje1[5]  <= "J";
-    mensaje1[6]  <= "E";
+    // Mensaje 0 - Usuario
+    mensaje0[0]  <= "E";
+    mensaje0[1]  <= "N";
+    mensaje0[2]  <= "T";
+    mensaje0[3]  <= "R";
+    mensaje0[4]  <= "A";
+    mensaje0[5]  <= " ";
+    mensaje0[6]  <= "U";
+    mensaje0[7]  <= "S";
+    mensaje0[8]  <= "U";
+    mensaje0[9]  <= "A";
+    mensaje0[10] <= "R";
+    mensaje0[11] <= "I";
+    mensaje0[12] <= "O";
+    mensaje0[13] <= " ";
+    mensaje0[14] <= "Y";
+    mensaje0[15] <= "*";
+
+    // Mensaje 1 - Clave
+    mensaje1[0]  <= "I";
+    mensaje1[1]  <= "N";
+    mensaje1[2]  <= "G";
+    mensaje1[3]  <= "R";
+    mensaje1[4]  <= "E";
+    mensaje1[5]  <= "S";
+    mensaje1[6]  <= "A";
     mensaje1[7]  <= " ";
-    mensaje1[8]  <= "U";
-    mensaje1[9]  <= "N";
-    mensaje1[10] <= "O";
-    mensaje1[11] <= " ";
-    mensaje1[12] <= " ";
+    mensaje1[8]  <= "C";
+    mensaje1[9]  <= "L";
+    mensaje1[10] <= "A";
+    mensaje1[11] <= "V";
+    mensaje1[12] <= "E";
     mensaje1[13] <= " ";
-    mensaje1[14] <= " ";
-    mensaje1[15] <= " ";
-    
-    // Mensaje 2
-    mensaje2[0]  <= "M";
-    mensaje2[1]  <= "E";
-    mensaje2[2]  <= "N";
-    mensaje2[3]  <= "S";
-    mensaje2[4]  <= "A";
-    mensaje2[5]  <= "J";
-    mensaje2[6]  <= "E";
-    mensaje2[7]  <= " ";
-    mensaje2[8]  <= "D";
-    mensaje2[9]  <= "O";
-    mensaje2[10] <= "S";
+    mensaje1[14] <= "Y";
+    mensaje1[15] <= "*";
+
+    // Mensaje 2 - Abierto
+    mensaje2[0]  <= "A";
+    mensaje2[1]  <= "B";
+    mensaje2[2]  <= "I";
+    mensaje2[3]  <= "E";
+    mensaje2[4]  <= "R";
+    mensaje2[5]  <= "T";
+    mensaje2[6]  <= "O";
+    mensaje2[7]  <= ".";
+    mensaje2[8]  <= ".";
+    mensaje2[9]  <= ".";
+    mensaje2[10] <= " ";
     mensaje2[11] <= " ";
     mensaje2[12] <= " ";
     mensaje2[13] <= " ";
     mensaje2[14] <= " ";
     mensaje2[15] <= " ";
+
+    // Mensaje 3 - Intruso
+    mensaje3[0]  <= " ";
+    mensaje3[1]  <= "I";
+    mensaje3[2]  <= "N";
+    mensaje3[3]  <= "T";
+    mensaje3[4]  <= "R";
+    mensaje3[5]  <= "U";
+    mensaje3[6]  <= "S";
+    mensaje3[7]  <= "O";
+    mensaje3[8]  <= " ";
+    mensaje3[9]  <= ">";
+    mensaje3[10] <= ":";
+    mensaje3[11] <= "[";
+    mensaje3[12] <= " ";
+    mensaje3[13] <= " ";
+    mensaje3[14] <= " ";
+    mensaje3[15] <= " ";
 end
 
 always @(posedge clk) begin
@@ -116,7 +159,10 @@ end
 always @(*) begin
     case(fsm_state)
         IDLE: begin
-            next_state <= (ready_i)? CONFIG_CMD : IDLE;
+            next_state <= (ready_i)? APAGADO : IDLE;
+        end
+        APAGADO: begin
+            next_state <= (distancia)? CONFIG_CMD : APAGADO;
         end
         CONFIG_CMD: begin 
             next_state <= (command_counter == NUM_COMMANDS) ? WR_TEXT : CONFIG_CMD;
@@ -141,7 +187,7 @@ always @(posedge clk_16ms) begin
         command_counter <= 'b0;
         data_counter <= 'b0;
         dat <= 'b0;
-        mns_prev <= 4'b0;
+        mns_prev <= 2'b0;
     end else begin
         case (next_state)
             IDLE: begin
@@ -151,24 +197,37 @@ always @(posedge clk_16ms) begin
                 dat <= 'b0;
                 mns_prev <= mns;
             end
+            APAGADO: begin
+                rs <= 1'b0;
+                dat <= DISPLAY_OFF;
+                Apagar <= 1'b1;
+            end
             CONFIG_CMD: begin
                 rs <= 1'b0;
                 command_counter <= command_counter + 1;
                 dat <= config_mem[command_counter];
                 mns_prev <= mns;
+                Apagar <= 1'b0;
             end
             CHANGE_MNS: begin
                 rs <= 1'b0;
                 data_counter <= 'b0;
                 mns_prev <= mns;
+                dat <= 8'b0;
             end
             WR_TEXT: begin
                 rs <= 1'b1;
                 // Seleccionar mensaje según mns
-                if (mns == 4'b0000) begin
+                if (mns == 2'b00) begin
+                    dat <= mensaje0[data_counter];
+                end else if (mns == 2'b01) begin
                     dat <= mensaje1[data_counter];
-                end else begin
+                end else if (mns == 2'b10) begin
                     dat <= mensaje2[data_counter];
+                end else if (mns == 2'b11) begin
+                    dat <= mensaje3[data_counter];
+                end else begin
+                    dat <= mensaje0[data_counter]; // Mensaje por defecto
                 end
 
                 if (data_counter == NUM_DATA - 1) begin
