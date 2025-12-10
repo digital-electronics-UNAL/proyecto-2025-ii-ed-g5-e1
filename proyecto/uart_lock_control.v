@@ -23,8 +23,8 @@ module uart_lock_control (
     );
 
     // Lógica de control de cerradura
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge ~rst) begin
+        if (!rst) begin
             lock_open <= 1'b0;  // Cerrada por defecto
         end else begin
             if (rx_valid) begin
