@@ -1,0 +1,32 @@
+|uart_lock_control
+clk => clk.IN1
+rst => lock_open~reg0.ACLR
+rx_pin => rx_pin.IN1
+lock_open << lock_open~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart_lock_control|uart_rx:uart_rx_inst
+i_Clock => r_Clock_Count[0].CLK
+i_Clock => r_Clock_Count[1].CLK
+i_Clock => r_Clock_Count[2].CLK
+i_Clock => r_Clock_Count[3].CLK
+i_Clock => r_Clock_Count[4].CLK
+i_Clock => r_Clock_Count[5].CLK
+i_Clock => r_Clock_Count[6].CLK
+i_Clock => r_Clock_Count[7].CLK
+i_Clock => r_Rx_DV.CLK
+i_Clock => r_Rx_Data.CLK
+i_Clock => r_Rx_Data_R.CLK
+i_Clock => r_SM_Main~1.DATAIN
+i_Rx_Serial => r_Rx_Data_R.DATAIN
+o_Rx_DV <= r_Rx_DV.DB_MAX_OUTPUT_PORT_TYPE
+o_Rx_Byte[0] <= <GND>
+o_Rx_Byte[1] <= <GND>
+o_Rx_Byte[2] <= <GND>
+o_Rx_Byte[3] <= <GND>
+o_Rx_Byte[4] <= <GND>
+o_Rx_Byte[5] <= <GND>
+o_Rx_Byte[6] <= <GND>
+o_Rx_Byte[7] <= <GND>
+
+
