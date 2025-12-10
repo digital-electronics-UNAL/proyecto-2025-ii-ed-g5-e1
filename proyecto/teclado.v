@@ -6,8 +6,9 @@ module teclado #(
     input wire rst,
     input [3:0] column,
     output reg [3:0] row,
-    output reg [7:0] digito,
-    output reg key_detected
+    output reg [3:0] digito,
+    output reg key_detected,
+    output reg p
 );
 
 localparam IDLE   = 3'd0;
@@ -25,9 +26,16 @@ reg enable_10ms;
 reg [$clog2(CICLOS_20US)-1:0] counter_20us;
 reg enable_20us;
 
+
+
+
+always @(posedge clk) begin
+p <= 1;
+end
+
 // Generadores de enable
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
+always @(posedge clk or posedge ~rst) begin
+    if (~rst) begin
         counter_10ms <= 0;
         enable_10ms  <= 0;
         counter_20us <= 0;
@@ -47,7 +55,7 @@ always @(posedge clk or posedge rst) begin
             counter_20us <= 0;
             enable_20us  <= 1;
         end else
-            counter_20us <= counter_counter_20us + 1;
+            counter_20us <= counter_20us + 1;
     end
 end
 
@@ -69,11 +77,11 @@ always @(*) begin
 end
 
 // ÚNICO bloque secuencial: aquí se actualiza TODO lo que depende del reloj
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
+always @(posedge clk or posedge ~rst) begin
+    if (~rst) begin
         state        <= IDLE;
         row          <= 4'b1111;
-        digito       <= 8'h00;
+        digito       <= 4'b0000;
         key_detected <= 0;
         col_low      <= 0;
     end else begin
@@ -86,11 +94,11 @@ always @(posedge clk or posedge rst) begin
                 row <= 4'b0111;
                 if (col_low) begin
                     case (column)
-                        4'b0111: digito <= 8'h31;  // 1
-                        4'b1011: digito <= 8'h32;  // 2
-                        4'b1101: digito <= 8'h33;  // 3
-                        4'b1110: digito <= 8'h41;  // A
-                        default: digito <= 8'h58;  // error
+                        4'b0111: digito <= 4'b0001;  // 1
+                        4'b1011: digito <=  4'b0100; //4
+                        4'b1101: digito <= 4'b0111; //7
+                        4'b1110: digito <=  4'b1110;  // *
+                        default: digito <= 4'b0000;  // error
                     endcase
                     key_detected <= 1;
                 end
@@ -99,11 +107,11 @@ always @(posedge clk or posedge rst) begin
                 row <= 4'b1011;
                 if (col_low) begin
                     case (column)
-                        4'b0111: digito <= 8'h34;
-                        4'b1011: digito <= 8'h35;
-                        4'b1101: digito <= 8'h36;
-                        4'b1110: digito <= 8'h42;
-                        default: digito <= 8'h58;
+                        4'b0111: digito <= 4'b0010;  // 2
+                        4'b1011: digito <= 4'b0101;//5
+                        4'b1101: digito <= 4'b1000;//8
+                        4'b1110: digito <= 4'b0000;  // 0
+                        default: digito <= 4'b0000;
                     endcase
                     key_detected <= 1;
                 end
@@ -112,11 +120,11 @@ always @(posedge clk or posedge rst) begin
                 row <= 4'b1101;
                 if (col_low) begin
                     case (column)
-                        4'b0111: digito <= 8'h37;
-                        4'b1011: digito <= 8'h38;
-                        4'b1101: digito <= 8'h39;
-                        4'b1110: digito <= 8'h43;
-                        default: digito <= 8'h58;
+                        4'b0111: digito <=  4'b0011;  // 3
+                        4'b1011: digito <=  4'b0110;//6
+                        4'b1101: digito <= 4'b1001;//9
+                        4'b1110: digito <= 4'b1111;  // #
+                        default: digito <= 4'b0000;
                     endcase
                     key_detected <= 1;
                 end
@@ -125,11 +133,11 @@ always @(posedge clk or posedge rst) begin
                 row <= 4'b1110;
                 if (col_low) begin
                     case (column)
-                        4'b0111: digito <= 8'h2A;  // *
-                        4'b1011: digito <= 8'h30;  // 0
-                        4'b1101: digito <= 8'h23;  // #
-                        4'b1110: digito <= 8'h44;  // D
-                        default: digito <= 8'h58;
+                        4'b0111: digito <= 4'b1010;  // A
+                        4'b1011: digito <=  4'b1011;//B
+                        4'b1101: digito <=  4'b1100;//C
+                        4'b1110: digito <= 4'b1101;  // D
+                        default: digito <= 4'b0001;
                     endcase
                     key_detected <= 1;
                 end
