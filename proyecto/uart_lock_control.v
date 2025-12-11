@@ -31,7 +31,7 @@ module uart_lock_control (
 
     // Lógica de control de cerradura - CORREGIDA
     always @(posedge clk or posedge rst) begin
-        if (!rst) begin
+        if (rst == 0) begin
             lock_open <= 1'b0;
         end else if (rx_valid) begin
             if (rx_byte == CHAR_A)       // Comparación corregida
