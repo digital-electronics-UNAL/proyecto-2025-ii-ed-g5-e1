@@ -26,7 +26,7 @@ module uart_rx
   // Double-register con RESET SÍNCRONO
   always @(posedge i_Clock)
     begin
-      if (i_Reset) begin
+      if (~i_Reset) begin
         r_Rx_Data_R <= 1'b1;
         r_Rx_Data   <= 1'b1;
       end else begin
@@ -38,7 +38,7 @@ module uart_rx
   // Control RX state machine con RESET SÍNCRONO
   always @(posedge i_Clock)
     begin
-      if (i_Reset) begin
+      if (~i_Reset) begin
         r_SM_Main     <= s_IDLE;
         r_Rx_DV       <= 1'b0;
         r_Clock_Count <= 0;
