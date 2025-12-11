@@ -6,7 +6,7 @@ module uart_lock_control (
 );
 
     // Parámetros UART
-    localparam CLKS_PER_BIT = 434;  // Corregido a 434
+    localparam CLKS_PER_BIT = 434;
     
     // Códigos ASCII
     localparam CHAR_A = 8'h41;  // 'A' = 0x41
@@ -29,14 +29,14 @@ module uart_lock_control (
 
 
 
-    // Lógica de control de cerradura - CORREGIDA
+    // Lógica de control de cerradura
     always @(posedge clk or negedge rst) begin
         if (rst == 0) begin
             lock_open <= 1'b0;
         end else if (rx_valid) begin
-            if (rx_byte == CHAR_A)       // Comparación corregida
+            if (rx_byte == CHAR_A)      
                 lock_open <= 1'b1;
-            else if (rx_byte == CHAR_C)  // Comparación corregida
+            else if (rx_byte == CHAR_C)
                 lock_open <= 1'b0;
         end
     end
