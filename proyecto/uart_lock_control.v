@@ -21,7 +21,7 @@ module uart_lock_control (
         .CLKS_PER_BIT(CLKS_PER_BIT)
     ) uart_rx_inst (
         .i_Clock(clk),
-        .i_Reset(rst),      // AÑADIDO
+        .i_Reset(rst),
         .i_Rx_Serial(rx_pin),
         .o_Rx_DV(rx_valid),
         .o_Rx_Byte(rx_byte)
