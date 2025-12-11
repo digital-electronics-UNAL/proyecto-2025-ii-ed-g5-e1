@@ -1,12 +1,18 @@
 module uart_lock_control (
-    input wire clk,         // Reloj de 50 MHz
-    input wire rst,         // Reset activo alto
-    input wire rx_pin,      // Pin RX desde ESP32
-    output reg lock_open    // Salida para controlar cerradura (1: abierta, 0: cerrada)
+    input wire clk,
+    input wire rst,
+    input wire rx_pin,
+    output reg lock_open,
+    output wire [7:0] debug_rx_byte,  // AÑADIDO: para debug
+    output wire debug_rx_valid        // AÑADIDO: para debug
 );
 
     // Parámetros UART
-    localparam CLKS_PER_BIT = 434;  // Para 50 MHz y 115200 baud
+    localparam CLKS_PER_BIT = 434;  // Corregido a 434
+    
+    // Códigos ASCII
+    localparam CHAR_A = 8'h41;  // 'A' = 0x41
+    localparam CHAR_C = 8'h43;  // 'C' = 0x43
 
     // Señales de uart_rx
     wire rx_valid;
@@ -17,19 +23,25 @@ module uart_lock_control (
         .CLKS_PER_BIT(CLKS_PER_BIT)
     ) uart_rx_inst (
         .i_Clock(clk),
+        .i_Reset(rst),      // AÑADIDO
         .i_Rx_Serial(rx_pin),
         .o_Rx_DV(rx_valid),
         .o_Rx_Byte(rx_byte)
     );
 
-    // Lógica de control de cerradura
-    
-always @(posedge clk or posedge rst) begin
+    // Señales de debug
+    assign debug_rx_byte = rx_byte;
+    assign debug_rx_valid = rx_valid;
+
+    // Lógica de control de cerradura - CORREGIDA
+    always @(posedge clk or posedge rst) begin
         if (rst) begin
             lock_open <= 1'b0;
         end else if (rx_valid) begin
-            if (rx_byte == "A")       lock_open <= 1'b1;
-            else if (rx_byte == "C")  lock_open <= 1'b0;
+            if (rx_byte == CHAR_A)       // Comparación corregida
+                lock_open <= 1'b1;
+            else if (rx_byte == CHAR_C)  // Comparación corregida
+                lock_open <= 1'b0;
         end
     end
 
