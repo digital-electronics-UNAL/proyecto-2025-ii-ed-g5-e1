@@ -1,0 +1,1177 @@
+Timing Analyzer report for uartservo
+Thu Dec 11 05:58:23 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'clk'
+ 22. Slow 1200mV 0C Model Hold: 'clk'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'clk'
+ 30. Fast 1200mV 0C Model Hold: 'clk'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                         ;
++-----------------------+---------------------------------------------------------+
+; Quartus Prime Version ; Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                  ;
+; Revision Name         ; uartservo                                               ;
+; Device Family         ; Cyclone IV E                                            ;
+; Device Name           ; EP4CE10E22C8                                            ;
+; Timing Models         ; Final                                                   ;
+; Delay Model           ; Combined                                                ;
+; Rise/Fall Delays      ; Enabled                                                 ;
++-----------------------+---------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   1.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 200.64 MHz ; 200.64 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -3.984 ; -287.171           ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.434 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -130.882                         ;
++-------+--------+----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                                                                              ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                              ; To Node                                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.984 ; buzzer_counter[3]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.581     ; 4.404      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.953 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.873      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.923 ; buzzer_counter[5]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.581     ; 4.343      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.875 ; buzzer_counter[11]                                                     ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.794      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.852 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.275      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.831 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.254      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.805 ; buzzer_counter[8]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.581     ; 4.225      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.794 ; buzzer_counter[1]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.713      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.792 ; buzzer_counter[0]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.711      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.784 ; buzzer_counter[2]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.703      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.202      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.578     ; 4.166      ;
+; -3.730 ; buzzer_counter[3]                                                      ; buzzer_counter[25]                                                      ; clk          ; clk         ; 1.000        ; -0.582     ; 4.149      ;
+; -3.730 ; buzzer_counter[3]                                                      ; buzzer_counter[19]                                                      ; clk          ; clk         ; 1.000        ; -0.582     ; 4.149      ;
+; -3.730 ; buzzer_counter[3]                                                      ; buzzer_counter[12]                                                      ; clk          ; clk         ; 1.000        ; -0.582     ; 4.149      ;
+; -3.730 ; buzzer_counter[3]                                                      ; buzzer_counter[13]                                                      ; clk          ; clk         ; 1.000        ; -0.582     ; 4.149      ;
+; -3.730 ; buzzer_counter[3]                                                      ; buzzer_counter[14]                                                      ; clk          ; clk         ; 1.000        ; -0.582     ; 4.149      ;
+; -3.730 ; buzzer_counter[3]                                                      ; buzzer_counter[15]                                                      ; clk          ; clk         ; 1.000        ; -0.582     ; 4.149      ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                                                                                             ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                      ; To Node                                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.434 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; clk          ; clk         ; 0.000        ; 0.100      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[1]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[1]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[5]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[5]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[0]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[0]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[3]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[3]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[4]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[4]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_START_BIT ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_START_BIT ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[1]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[1]           ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.454 ; uart_lock_control:uart_lock_inst|lock_open                                     ; uart_lock_control:uart_lock_inst|lock_open                                     ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.508 ; buzzer_counter[25]                                                             ; buzzer_counter[25]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.802      ;
+; 0.516 ; servo_control:servo_inst|counter[19]                                           ; servo_control:servo_inst|counter[19]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.810      ;
+; 0.609 ; servo_control:servo_inst|counter[13]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.578      ; 1.399      ;
+; 0.617 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.578      ; 1.407      ;
+; 0.619 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.409      ;
+; 0.620 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.578      ; 1.410      ;
+; 0.621 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.411      ;
+; 0.624 ; buzzer_counter[2]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.417      ;
+; 0.626 ; buzzer_counter[6]                                                              ; buzzer_counter[7]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.419      ;
+; 0.627 ; servo_control:servo_inst|counter[12]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.578      ; 1.417      ;
+; 0.633 ; buzzer_counter[2]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.426      ;
+; 0.635 ; buzzer_counter[6]                                                              ; buzzer_counter[8]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.428      ;
+; 0.637 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.427      ;
+; 0.639 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.578      ; 1.429      ;
+; 0.643 ; servo_control:servo_inst|counter[17]                                           ; servo_control:servo_inst|servo_pwm                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.937      ;
+; 0.724 ; buzzer_counter[5]                                                              ; buzzer_counter[5]                                                              ; clk          ; clk         ; 0.000        ; 0.102      ; 1.038      ;
+; 0.724 ; buzzer_counter[3]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.102      ; 1.038      ;
+; 0.727 ; buzzer_counter[4]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.102      ; 1.041      ;
+; 0.730 ; buzzer_counter[1]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.523      ;
+; 0.732 ; servo_control:servo_inst|counter[11]                                           ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.101      ; 1.045      ;
+; 0.739 ; buzzer_counter[1]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.532      ;
+; 0.741 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; clk          ; clk         ; 0.000        ; 0.101      ; 1.054      ;
+; 0.742 ; buzzer_counter[11]                                                             ; buzzer_counter[11]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.036      ;
+; 0.742 ; buzzer_counter[8]                                                              ; buzzer_counter[8]                                                              ; clk          ; clk         ; 0.000        ; 0.102      ; 1.056      ;
+; 0.742 ; buzzer_counter[7]                                                              ; buzzer_counter[7]                                                              ; clk          ; clk         ; 0.000        ; 0.102      ; 1.056      ;
+; 0.743 ; buzzer_counter[9]                                                              ; buzzer_counter[9]                                                              ; clk          ; clk         ; 0.000        ; 0.082      ; 1.037      ;
+; 0.743 ; buzzer_counter[10]                                                             ; buzzer_counter[10]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.037      ;
+; 0.743 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.101      ; 1.056      ;
+; 0.744 ; buzzer_counter[1]                                                              ; buzzer_counter[1]                                                              ; clk          ; clk         ; 0.000        ; 0.082      ; 1.038      ;
+; 0.744 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.101      ; 1.057      ;
+; 0.744 ; servo_control:servo_inst|counter[3]                                            ; servo_control:servo_inst|counter[3]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.038      ;
+; 0.744 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; clk          ; clk         ; 0.000        ; 0.101      ; 1.057      ;
+; 0.745 ; servo_control:servo_inst|counter[1]                                            ; servo_control:servo_inst|counter[1]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.039      ;
+; 0.745 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.101      ; 1.058      ;
+; 0.746 ; buzzer_counter[21]                                                             ; buzzer_counter[21]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.040      ;
+; 0.746 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.101      ; 1.059      ;
+; 0.747 ; buzzer_counter[0]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.540      ;
+; 0.748 ; buzzer_counter[20]                                                             ; buzzer_counter[20]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.042      ;
+; 0.750 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.540      ;
+; 0.750 ; servo_control:servo_inst|counter[13]                                           ; servo_control:servo_inst|counter[13]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.044      ;
+; 0.751 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.578      ; 1.541      ;
+; 0.752 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.542      ;
+; 0.752 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[10]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.046      ;
+; 0.753 ; servo_control:servo_inst|counter[12]                                           ; servo_control:servo_inst|counter[12]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.047      ;
+; 0.753 ; servo_control:servo_inst|counter[14]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.101      ; 1.066      ;
+; 0.754 ; servo_control:servo_inst|counter[4]                                            ; servo_control:servo_inst|counter[4]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.048      ;
+; 0.754 ; servo_control:servo_inst|counter[17]                                           ; servo_control:servo_inst|counter[17]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.048      ;
+; 0.756 ; servo_control:servo_inst|counter[18]                                           ; servo_control:servo_inst|counter[18]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.050      ;
+; 0.756 ; buzzer_counter[0]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.549      ;
+; 0.757 ; servo_control:servo_inst|counter[9]                                            ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.577      ; 1.546      ;
+; 0.758 ; servo_control:servo_inst|counter[5]                                            ; servo_control:servo_inst|counter[5]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.052      ;
+; 0.760 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.550      ;
+; 0.760 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.578      ; 1.550      ;
+; 0.761 ; buzzer_counter[13]                                                             ; buzzer_counter[13]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.761 ; buzzer_counter[15]                                                             ; buzzer_counter[15]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.761 ; servo_control:servo_inst|counter[15]                                           ; servo_control:servo_inst|counter[15]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.762 ; buzzer_counter[0]                                                              ; buzzer_counter[0]                                                              ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.762 ; buzzer_counter[2]                                                              ; buzzer_counter[2]                                                              ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.762 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.763 ; buzzer_counter[14]                                                             ; buzzer_counter[14]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; buzzer_counter[16]                                                             ; buzzer_counter[16]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; buzzer_counter[23]                                                             ; buzzer_counter[23]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; servo_control:servo_inst|counter[0]                                            ; servo_control:servo_inst|counter[0]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.764 ; buzzer_counter[6]                                                              ; buzzer_counter[6]                                                              ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.764 ; buzzer_counter[24]                                                             ; buzzer_counter[24]                                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.764 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; servo_control:servo_inst|counter[2]                                            ; servo_control:servo_inst|counter[2]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.764 ; buzzer_counter[2]                                                              ; buzzer_counter[5]                                                              ; clk          ; clk         ; 0.000        ; 0.581      ; 1.557      ;
+; 0.765 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.058      ;
+; 0.766 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0]         ; clk          ; clk         ; 0.000        ; 0.101      ; 1.079      ;
+; 0.766 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.059      ;
+; 0.766 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.059      ;
+; 0.766 ; servo_control:servo_inst|counter[9]                                            ; servo_control:servo_inst|counter[9]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.060      ;
+; 0.766 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.578      ; 1.556      ;
+; 0.768 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.558      ;
+; 0.770 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.578      ; 1.560      ;
+; 0.771 ; servo_control:servo_inst|counter[16]                                           ; servo_control:servo_inst|counter[16]                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.065      ;
+; 0.774 ; servo_control:servo_inst|counter[7]                                            ; servo_control:servo_inst|counter[7]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.068      ;
+; 0.776 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; clk          ; clk         ; 0.000        ; 0.570      ; 1.558      ;
+; 0.778 ; servo_control:servo_inst|counter[8]                                            ; servo_control:servo_inst|counter[8]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.072      ;
+; 0.778 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.578      ; 1.568      ;
+; 0.779 ; servo_control:servo_inst|counter[6]                                            ; servo_control:servo_inst|counter[6]                                            ; clk          ; clk         ; 0.000        ; 0.082      ; 1.073      ;
+; 0.779 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.578      ; 1.569      ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 212.04 MHz ; 212.04 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -3.716 ; -263.753          ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.384 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -130.882                        ;
++-------+--------+---------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                                                                               ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                              ; To Node                                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.716 ; buzzer_counter[3]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 4.173      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.565      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.635 ; buzzer_counter[5]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 4.092      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.590 ; buzzer_counter[11]                                                     ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.518      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.550 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.544     ; 4.008      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.515 ; buzzer_counter[1]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.443      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.514 ; buzzer_counter[0]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.442      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.511 ; buzzer_counter[2]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.439      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.489 ; buzzer_counter[8]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 3.946      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.469 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.544     ; 3.927      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[25]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[19]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[12]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[13]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[14]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[15]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[16]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[17]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[18]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[20]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[22]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[21]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[23]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.465 ; buzzer_counter[3]                                                      ; buzzer_counter[24]                                                      ; clk          ; clk         ; 1.000        ; -0.547     ; 3.920      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.447 ; buzzer_counter[4]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.545     ; 3.904      ;
+; -3.446 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.904      ;
+; -3.446 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.904      ;
+; -3.446 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.544     ; 3.904      ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                                                                                              ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                      ; To Node                                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.384 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; clk          ; clk         ; 0.000        ; 0.090      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[1]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[1]             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[5]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[5]             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_START_BIT ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_START_BIT ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[1]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[1]           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.402 ; uart_lock_control:uart_lock_inst|lock_open                                     ; uart_lock_control:uart_lock_inst|lock_open                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[0]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[0]             ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[3]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[3]             ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[4]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[4]             ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.469 ; buzzer_counter[25]                                                             ; buzzer_counter[25]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.737      ;
+; 0.476 ; servo_control:servo_inst|counter[19]                                           ; servo_control:servo_inst|counter[19]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.744      ;
+; 0.553 ; buzzer_counter[2]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.293      ;
+; 0.555 ; servo_control:servo_inst|counter[13]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.540      ; 1.290      ;
+; 0.555 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.540      ; 1.290      ;
+; 0.556 ; buzzer_counter[6]                                                              ; buzzer_counter[7]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.296      ;
+; 0.556 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.544      ; 1.295      ;
+; 0.559 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.298      ;
+; 0.561 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.300      ;
+; 0.568 ; buzzer_counter[2]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.308      ;
+; 0.570 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.309      ;
+; 0.571 ; servo_control:servo_inst|counter[12]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.540      ; 1.306      ;
+; 0.573 ; buzzer_counter[6]                                                              ; buzzer_counter[8]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.313      ;
+; 0.574 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.544      ; 1.313      ;
+; 0.598 ; servo_control:servo_inst|counter[17]                                           ; servo_control:servo_inst|servo_pwm                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.866      ;
+; 0.643 ; buzzer_counter[1]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.383      ;
+; 0.650 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.544      ; 1.389      ;
+; 0.654 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.393      ;
+; 0.657 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.396      ;
+; 0.658 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; clk          ; clk         ; 0.000        ; 0.538      ; 1.391      ;
+; 0.662 ; servo_control:servo_inst|counter[9]                                            ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.539      ; 1.396      ;
+; 0.663 ; buzzer_counter[0]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.403      ;
+; 0.668 ; buzzer_counter[1]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.408      ;
+; 0.672 ; buzzer_counter[3]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.959      ;
+; 0.675 ; buzzer_counter[2]                                                              ; buzzer_counter[5]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.415      ;
+; 0.676 ; buzzer_counter[5]                                                              ; buzzer_counter[5]                                                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.963      ;
+; 0.677 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.416      ;
+; 0.678 ; buzzer_counter[4]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.965      ;
+; 0.678 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.417      ;
+; 0.678 ; buzzer_counter[0]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.545      ; 1.418      ;
+; 0.679 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.544      ; 1.418      ;
+; 0.680 ; servo_control:servo_inst|counter[11]                                           ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.092      ; 0.967      ;
+; 0.680 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.544      ; 1.419      ;
+; 0.687 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.973      ;
+; 0.688 ; buzzer_counter[8]                                                              ; buzzer_counter[8]                                                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.975      ;
+; 0.689 ; buzzer_counter[7]                                                              ; buzzer_counter[7]                                                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.976      ;
+; 0.689 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.975      ;
+; 0.690 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.976      ;
+; 0.691 ; buzzer_counter[9]                                                              ; buzzer_counter[9]                                                              ; clk          ; clk         ; 0.000        ; 0.074      ; 0.960      ;
+; 0.691 ; buzzer_counter[10]                                                             ; buzzer_counter[10]                                                             ; clk          ; clk         ; 0.000        ; 0.074      ; 0.960      ;
+; 0.691 ; buzzer_counter[11]                                                             ; buzzer_counter[11]                                                             ; clk          ; clk         ; 0.000        ; 0.074      ; 0.960      ;
+; 0.692 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.978      ;
+; 0.692 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.540      ; 1.427      ;
+; 0.693 ; buzzer_counter[1]                                                              ; buzzer_counter[1]                                                              ; clk          ; clk         ; 0.000        ; 0.074      ; 0.962      ;
+; 0.693 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.979      ;
+; 0.694 ; servo_control:servo_inst|counter[3]                                            ; servo_control:servo_inst|counter[3]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.962      ;
+; 0.694 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.980      ;
+; 0.695 ; servo_control:servo_inst|counter[1]                                            ; servo_control:servo_inst|counter[1]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.963      ;
+; 0.696 ; buzzer_counter[21]                                                             ; buzzer_counter[21]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.964      ;
+; 0.696 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.544      ; 1.435      ;
+; 0.696 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.544      ; 1.435      ;
+; 0.698 ; buzzer_counter[20]                                                             ; buzzer_counter[20]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.966      ;
+; 0.698 ; servo_control:servo_inst|counter[8]                                            ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.539      ; 1.432      ;
+; 0.700 ; servo_control:servo_inst|counter[13]                                           ; servo_control:servo_inst|counter[13]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.968      ;
+; 0.700 ; servo_control:servo_inst|counter[14]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.092      ; 0.987      ;
+; 0.703 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[10]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.971      ;
+; 0.704 ; servo_control:servo_inst|counter[12]                                           ; servo_control:servo_inst|counter[12]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.972      ;
+; 0.704 ; servo_control:servo_inst|counter[17]                                           ; servo_control:servo_inst|counter[17]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.972      ;
+; 0.705 ; buzzer_counter[2]                                                              ; buzzer_counter[2]                                                              ; clk          ; clk         ; 0.000        ; 0.074      ; 0.974      ;
+; 0.705 ; servo_control:servo_inst|counter[4]                                            ; servo_control:servo_inst|counter[4]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.973      ;
+; 0.706 ; buzzer_counter[13]                                                             ; buzzer_counter[13]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.706 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
+; 0.706 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
+; 0.706 ; servo_control:servo_inst|counter[15]                                           ; servo_control:servo_inst|counter[15]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.707 ; buzzer_counter[15]                                                             ; buzzer_counter[15]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.707 ; buzzer_counter[16]                                                             ; buzzer_counter[16]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.707 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.974      ;
+; 0.707 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.974      ;
+; 0.708 ; buzzer_counter[24]                                                             ; buzzer_counter[24]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.976      ;
+; 0.708 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; servo_control:servo_inst|counter[18]                                           ; servo_control:servo_inst|counter[18]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.976      ;
+; 0.709 ; buzzer_counter[23]                                                             ; buzzer_counter[23]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.977      ;
+; 0.709 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.709 ; servo_control:servo_inst|counter[5]                                            ; servo_control:servo_inst|counter[5]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.977      ;
+; 0.710 ; buzzer_counter[6]                                                              ; buzzer_counter[6]                                                              ; clk          ; clk         ; 0.000        ; 0.074      ; 0.979      ;
+; 0.710 ; buzzer_counter[14]                                                             ; buzzer_counter[14]                                                             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.978      ;
+; 0.711 ; servo_control:servo_inst|counter[2]                                            ; servo_control:servo_inst|counter[2]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.711 ; servo_control:servo_inst|counter[9]                                            ; servo_control:servo_inst|counter[9]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.712 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
+; 0.712 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
+; 0.712 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
+; 0.714 ; buzzer_counter[0]                                                              ; buzzer_counter[0]                                                              ; clk          ; clk         ; 0.000        ; 0.074      ; 0.983      ;
+; 0.714 ; servo_control:servo_inst|counter[0]                                            ; servo_control:servo_inst|counter[0]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.982      ;
+; 0.715 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0]         ; clk          ; clk         ; 0.000        ; 0.091      ; 1.001      ;
+; 0.717 ; servo_control:servo_inst|counter[16]                                           ; servo_control:servo_inst|counter[16]                                           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.985      ;
+; 0.719 ; servo_control:servo_inst|counter[7]                                            ; servo_control:servo_inst|counter[7]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.987      ;
+; 0.723 ; servo_control:servo_inst|counter[8]                                            ; servo_control:servo_inst|counter[8]                                            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.991      ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -1.063 ; -71.011           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.179 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -94.930                         ;
++-------+--------+---------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                                                                               ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                              ; To Node                                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.063 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.014      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; buzzer_counter[3]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.800      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.052 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.803      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.034 ; buzzer_counter[11]                                                     ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.984      ;
+; -1.034 ; buzzer_counter[5]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.782      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.009 ; buzzer_counter[8]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.757      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.003 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.754      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]  ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -1.002 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0] ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13] ; clk          ; clk         ; 1.000        ; -0.236     ; 1.753      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.985 ; buzzer_counter[2]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.935      ;
+; -0.978 ; servo_control:servo_inst|counter[14]                                   ; servo_control:servo_inst|servo_pwm                                      ; clk          ; clk         ; 1.000        ; -0.238     ; 1.727      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[0]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[1]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[2]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[6]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[9]                                                       ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[10]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[0]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.977 ; buzzer_counter[1]                                                      ; buzzer_counter[11]                                                      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.927      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[25]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[19]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[12]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[13]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[14]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[15]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[16]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[17]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[18]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[20]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[22]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[21]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[23]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
+; -0.953 ; buzzer_counter[3]                                                      ; buzzer_counter[24]                                                      ; clk          ; clk         ; 1.000        ; -0.239     ; 1.701      ;
++--------+------------------------------------------------------------------------+-------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                                                                                              ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                      ; To Node                                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.179 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; clk          ; clk         ; 0.000        ; 0.044      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|lock_open                                     ; uart_lock_control:uart_lock_inst|lock_open                                     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[1]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[1]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[5]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[5]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[0]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[0]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[3]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[3]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[4]             ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[4]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_START_BIT ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_START_BIT ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[1]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[1]           ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.204 ; buzzer_counter[25]                                                             ; buzzer_counter[25]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.325      ;
+; 0.208 ; servo_control:servo_inst|counter[19]                                           ; servo_control:servo_inst|counter[19]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.329      ;
+; 0.250 ; servo_control:servo_inst|counter[13]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.238      ; 0.572      ;
+; 0.254 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.236      ; 0.574      ;
+; 0.254 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; clk          ; clk         ; 0.000        ; 0.236      ; 0.574      ;
+; 0.255 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.236      ; 0.575      ;
+; 0.258 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.238      ; 0.580      ;
+; 0.260 ; buzzer_counter[2]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.583      ;
+; 0.262 ; buzzer_counter[6]                                                              ; buzzer_counter[7]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.585      ;
+; 0.262 ; servo_control:servo_inst|counter[17]                                           ; servo_control:servo_inst|servo_pwm                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.383      ;
+; 0.263 ; buzzer_counter[2]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.586      ;
+; 0.263 ; servo_control:servo_inst|counter[12]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.238      ; 0.585      ;
+; 0.265 ; buzzer_counter[6]                                                              ; buzzer_counter[8]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.588      ;
+; 0.267 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.236      ; 0.587      ;
+; 0.269 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.236      ; 0.589      ;
+; 0.288 ; buzzer_counter[3]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.045      ; 0.417      ;
+; 0.290 ; buzzer_counter[5]                                                              ; buzzer_counter[5]                                                              ; clk          ; clk         ; 0.000        ; 0.045      ; 0.419      ;
+; 0.291 ; buzzer_counter[4]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.045      ; 0.420      ;
+; 0.293 ; servo_control:servo_inst|counter[11]                                           ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.045      ; 0.422      ;
+; 0.296 ; buzzer_counter[11]                                                             ; buzzer_counter[11]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.417      ;
+; 0.296 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.044      ; 0.424      ;
+; 0.297 ; buzzer_counter[9]                                                              ; buzzer_counter[9]                                                              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.418      ;
+; 0.297 ; buzzer_counter[10]                                                             ; buzzer_counter[10]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.418      ;
+; 0.297 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; clk          ; clk         ; 0.000        ; 0.044      ; 0.425      ;
+; 0.297 ; buzzer_counter[7]                                                              ; buzzer_counter[7]                                                              ; clk          ; clk         ; 0.000        ; 0.045      ; 0.426      ;
+; 0.297 ; buzzer_counter[8]                                                              ; buzzer_counter[8]                                                              ; clk          ; clk         ; 0.000        ; 0.045      ; 0.426      ;
+; 0.298 ; buzzer_counter[1]                                                              ; buzzer_counter[1]                                                              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.044      ; 0.426      ;
+; 0.298 ; servo_control:servo_inst|counter[1]                                            ; servo_control:servo_inst|counter[1]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; servo_control:servo_inst|counter[3]                                            ; servo_control:servo_inst|counter[3]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.299 ; buzzer_counter[20]                                                             ; buzzer_counter[20]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.420      ;
+; 0.299 ; buzzer_counter[21]                                                             ; buzzer_counter[21]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.420      ;
+; 0.299 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.044      ; 0.427      ;
+; 0.299 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[2]         ; clk          ; clk         ; 0.000        ; 0.044      ; 0.427      ;
+; 0.299 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.044      ; 0.427      ;
+; 0.301 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[10]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.422      ;
+; 0.302 ; servo_control:servo_inst|counter[13]                                           ; servo_control:servo_inst|counter[13]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.423      ;
+; 0.303 ; servo_control:servo_inst|counter[12]                                           ; servo_control:servo_inst|counter[12]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.303 ; servo_control:servo_inst|counter[17]                                           ; servo_control:servo_inst|counter[17]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.303 ; servo_control:servo_inst|counter[14]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.045      ; 0.432      ;
+; 0.304 ; buzzer_counter[2]                                                              ; buzzer_counter[2]                                                              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; buzzer_counter[13]                                                             ; buzzer_counter[13]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; servo_control:servo_inst|counter[4]                                            ; servo_control:servo_inst|counter[4]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; servo_control:servo_inst|counter[15]                                           ; servo_control:servo_inst|counter[15]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; servo_control:servo_inst|counter[18]                                           ; servo_control:servo_inst|counter[18]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.305 ; buzzer_counter[14]                                                             ; buzzer_counter[14]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; buzzer_counter[15]                                                             ; buzzer_counter[15]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; buzzer_counter[16]                                                             ; buzzer_counter[16]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; buzzer_counter[24]                                                             ; buzzer_counter[24]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main.s_RX_STOP_BIT  ; clk          ; clk         ; 0.000        ; 0.232      ; 0.621      ;
+; 0.306 ; buzzer_counter[6]                                                              ; buzzer_counter[6]                                                              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; buzzer_counter[23]                                                             ; buzzer_counter[23]                                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[6]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; servo_control:servo_inst|counter[0]                                            ; servo_control:servo_inst|counter[0]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; servo_control:servo_inst|counter[2]                                            ; servo_control:servo_inst|counter[2]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; servo_control:servo_inst|counter[9]                                            ; servo_control:servo_inst|counter[9]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.307 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; servo_control:servo_inst|counter[5]                                            ; servo_control:servo_inst|counter[5]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.428      ;
+; 0.308 ; buzzer_counter[0]                                                              ; buzzer_counter[0]                                                              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.429      ;
+; 0.308 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[10]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.308 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[12]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.308 ; buzzer_counter[1]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.631      ;
+; 0.309 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[0]         ; clk          ; clk         ; 0.000        ; 0.044      ; 0.437      ;
+; 0.310 ; servo_control:servo_inst|counter[16]                                           ; servo_control:servo_inst|counter[16]                                           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.431      ;
+; 0.311 ; buzzer_counter[1]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.634      ;
+; 0.312 ; servo_control:servo_inst|counter[7]                                            ; servo_control:servo_inst|counter[7]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.433      ;
+; 0.313 ; servo_control:servo_inst|counter[8]                                            ; servo_control:servo_inst|counter[8]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.434      ;
+; 0.314 ; servo_control:servo_inst|counter[6]                                            ; servo_control:servo_inst|counter[6]                                            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.435      ;
+; 0.316 ; servo_control:servo_inst|counter[18]                                           ; servo_control:servo_inst|servo_pwm                                             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.437      ;
+; 0.317 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[13]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[15]        ; clk          ; clk         ; 0.000        ; 0.236      ; 0.637      ;
+; 0.317 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[1]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3]         ; clk          ; clk         ; 0.000        ; 0.236      ; 0.637      ;
+; 0.318 ; servo_control:servo_inst|counter[9]                                            ; servo_control:servo_inst|counter[11]                                           ; clk          ; clk         ; 0.000        ; 0.237      ; 0.639      ;
+; 0.318 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[7]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[9]         ; clk          ; clk         ; 0.000        ; 0.236      ; 0.638      ;
+; 0.320 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[5]         ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[8]         ; clk          ; clk         ; 0.000        ; 0.236      ; 0.640      ;
+; 0.320 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[11]        ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[14]        ; clk          ; clk         ; 0.000        ; 0.236      ; 0.640      ;
+; 0.321 ; buzzer_counter[0]                                                              ; buzzer_counter[3]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.644      ;
+; 0.323 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[2]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.443      ;
+; 0.324 ; buzzer_counter[0]                                                              ; buzzer_counter[4]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.647      ;
+; 0.326 ; buzzer_counter[2]                                                              ; buzzer_counter[5]                                                              ; clk          ; clk         ; 0.000        ; 0.239      ; 0.649      ;
+; 0.327 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[6]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.447      ;
+; 0.327 ; servo_control:servo_inst|counter[10]                                           ; servo_control:servo_inst|counter[14]                                           ; clk          ; clk         ; 0.000        ; 0.238      ; 0.649      ;
+; 0.328 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index[2]           ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Byte[7]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.448      ;
++-------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -3.984   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -3.984   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -287.171 ; 0.0   ; 0.0      ; 0.0     ; -130.882            ;
+;  clk             ; -287.171 ; 0.000 ; N/A      ; N/A     ; -130.882            ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; servo_pwm     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; buzzer        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rst                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rx_pin                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; servo_pwm     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.36 V              ; -0.00737 V          ; 0.209 V                              ; 0.012 V                              ; 5.22e-10 s                  ; 5.33e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.36 V             ; -0.00737 V         ; 0.209 V                             ; 0.012 V                             ; 5.22e-10 s                 ; 5.33e-10 s                 ; Yes                       ; Yes                       ;
+; buzzer        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; servo_pwm     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.34 V              ; -0.00869 V          ; 0.14 V                               ; 0.046 V                              ; 6.89e-10 s                  ; 6.56e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.34 V             ; -0.00869 V         ; 0.14 V                              ; 0.046 V                             ; 6.89e-10 s                 ; 6.56e-10 s                 ; Yes                       ; Yes                       ;
+; buzzer        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; servo_pwm     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; buzzer        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 3480     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 3480     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 37    ; 37   ;
+; Unconstrained Output Ports      ; 2     ; 2    ;
+; Unconstrained Output Port Paths ; 2     ; 2    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; rst        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rx_pin     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; buzzer      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; servo_pwm   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; rst        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rx_pin     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; buzzer      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; servo_pwm   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Thu Dec 11 05:58:21 2025
+Info: Command: quartus_sta uartservo -c uartservo
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'uartservo.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.984
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.984            -287.171 clk 
+Info (332146): Worst-case hold slack is 0.434
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.434               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -130.882 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.716
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.716            -263.753 clk 
+Info (332146): Worst-case hold slack is 0.384
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.384               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -130.882 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.063
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.063             -71.011 clk 
+Info (332146): Worst-case hold slack is 0.179
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.179               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -94.930 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 419 megabytes
+    Info: Processing ended: Thu Dec 11 05:58:23 2025
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

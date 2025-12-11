@@ -1,0 +1,9 @@
+
+State Machine - |mensaje_Off_LCD|fsm_state
+Name fsm_state.CHANGE_MNS fsm_state.DISPLAY fsm_state.WR_TEXT fsm_state.CONFIG_CMD fsm_state.APAGADO fsm_state.IDLE 
+fsm_state.IDLE 0 0 0 0 0 0 
+fsm_state.APAGADO 0 0 0 0 1 1 
+fsm_state.CONFIG_CMD 0 0 0 1 0 1 
+fsm_state.WR_TEXT 0 0 1 0 0 1 
+fsm_state.DISPLAY 0 1 0 0 0 1 
+fsm_state.CHANGE_MNS 1 0 0 0 0 1 

@@ -38,7 +38,7 @@ always @(posedge clk) begin
             if (pos_act != pos_ant) begin
                 state_buzzer <= BUZZER_ON;
                 buzzer_counter <= 0;
-                buzzer <= 1;
+                buzzer <= 0;
             end
         end
 
@@ -47,7 +47,7 @@ always @(posedge clk) begin
                 buzzer_counter <= buzzer_counter + 1;
             end else begin
                 state_buzzer <= WAIT_POS_CHANGE;
-                buzzer <= 0;
+                buzzer <= 1;
             end
         end
     endcase

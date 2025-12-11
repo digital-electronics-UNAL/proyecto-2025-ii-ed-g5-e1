@@ -1,0 +1,29 @@
+
+State Machine - |top|state
+Name state.S_ESPERA state.S_LLENO state.S_GUARDA 
+state.S_ESPERA 0 0 0 
+state.S_GUARDA 1 0 1 
+state.S_LLENO 1 1 0 
+
+State Machine - |top|LCD1602_controller:lcd_controller|sel_dinamic
+Name sel_dinamic.WR_D sel_dinamic.WR_C sel_dinamic.WR_UM sel_dinamic.SetCursor sel_dinamic.WR_U 
+sel_dinamic.SetCursor 0 0 0 0 0 
+sel_dinamic.WR_UM 0 0 1 1 0 
+sel_dinamic.WR_C 0 1 0 1 0 
+sel_dinamic.WR_D 1 0 0 1 0 
+sel_dinamic.WR_U 0 0 0 1 1 
+
+State Machine - |top|LCD1602_controller:lcd_controller|fsm_state
+Name fsm_state.CONFIG_CMD1 fsm_state.IDLE fsm_state.WR_Din_TEXT fsm_state.WR_STATIC_TEXT_1L 
+fsm_state.IDLE 0 0 0 0 
+fsm_state.CONFIG_CMD1 1 1 0 0 
+fsm_state.WR_STATIC_TEXT_1L 0 1 0 1 
+fsm_state.WR_Din_TEXT 0 1 1 0 
+
+State Machine - |top|teclado:teclado_inst|state
+Name state.FILA_3 state.FILA_2 state.FILA_1 state.IDLE state.FILA_4 
+state.IDLE 0 0 0 0 0 
+state.FILA_1 0 0 1 1 0 
+state.FILA_2 0 1 0 1 0 
+state.FILA_3 1 0 0 1 0 
+state.FILA_4 0 0 0 1 1 
