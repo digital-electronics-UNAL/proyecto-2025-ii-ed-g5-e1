@@ -2,7 +2,7 @@ module uart_lock_control (
     input wire clk,
     input wire rst,
     input wire rx_pin,
-    output reg lock_open,
+    output reg lock_open
 );
 
     // Parámetros UART
@@ -27,8 +27,7 @@ module uart_lock_control (
         .o_Rx_Byte(rx_byte)
     );
 
-    // Señales de debug
-    assign  = rx_byte;
+
 
     // Lógica de control de cerradura - CORREGIDA
     always @(posedge clk or posedge rst) begin
