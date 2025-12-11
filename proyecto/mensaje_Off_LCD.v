@@ -1,7 +1,7 @@
 module mensaje_Off_LCD #(parameter  NUM_COMMANDS = 4, 
-                                NUM_DATA = 16,  // Solo linea 1
-                                DATA_BITS = 8,
-                                COUNT_MAX = 800000)(
+                                    NUM_DATA = 16,
+                                    DATA_BITS = 8,
+                                    COUNT_MAX = 800000)(
     input clk,            
     input reset,
     input ready_i,
@@ -20,8 +20,8 @@ localparam CONFIG_CMD = 3'b010;
 localparam WR_TEXT = 3'b011;
 localparam CHANGE_MNS = 3'b100;
 
-reg [1:0] fsm_state;
-reg [1:0] next_state;
+reg [2:0] fsm_state;
+reg [2:0] next_state;
 reg clk_16ms;
 
 // Comandos de configuración del LCD
@@ -66,22 +66,22 @@ initial begin
     config_mem[3] <= CLEAR_DISPLAY;
     
     // Mensaje 0 - Usuario
-    mensaje0[0]  <= "E";
+    mensaje0[0]  <= "I";
     mensaje0[1]  <= "N";
-    mensaje0[2]  <= "T";
+    mensaje0[2]  <= "G";
     mensaje0[3]  <= "R";
-    mensaje0[4]  <= "A";
-    mensaje0[5]  <= " ";
-    mensaje0[6]  <= "U";
-    mensaje0[7]  <= "S";
+    mensaje0[4]  <= "E";
+    mensaje0[5]  <= "S";
+    mensaje0[6]  <= "A";
+    mensaje0[7]  <= " ";
     mensaje0[8]  <= "U";
-    mensaje0[9]  <= "A";
-    mensaje0[10] <= "R";
-    mensaje0[11] <= "I";
-    mensaje0[12] <= "O";
-    mensaje0[13] <= " ";
-    mensaje0[14] <= "Y";
-    mensaje0[15] <= "*";
+    mensaje0[9]  <= "S";
+    mensaje0[10] <= "U";
+    mensaje0[11] <= "A";
+    mensaje0[12] <= "R";
+    mensaje0[13] <= "I";
+    mensaje0[14] <= "O";
+    mensaje0[15] <= " ";
 
     // Mensaje 1 - Clave
     mensaje1[0]  <= "I";
@@ -91,15 +91,15 @@ initial begin
     mensaje1[4]  <= "E";
     mensaje1[5]  <= "S";
     mensaje1[6]  <= "A";
-    mensaje1[7]  <= " ";
-    mensaje1[8]  <= "C";
-    mensaje1[9]  <= "L";
-    mensaje1[10] <= "A";
-    mensaje1[11] <= "V";
-    mensaje1[12] <= "E";
-    mensaje1[13] <= " ";
-    mensaje1[14] <= "Y";
-    mensaje1[15] <= "*";
+    mensaje1[7]  <= "R";
+    mensaje1[8]  <= " ";
+    mensaje1[9]  <= "C";
+    mensaje1[10] <= "L";
+    mensaje1[11] <= "A";
+    mensaje1[12] <= "V";
+    mensaje1[13] <= "E";
+    mensaje1[14] <= " ";
+    mensaje1[15] <= " ";
 
     // Mensaje 2 - Abierto
     mensaje2[0]  <= "A";
@@ -162,7 +162,7 @@ always @(*) begin
             next_state <= (ready_i)? APAGADO : IDLE;
         end
         APAGADO: begin
-            next_state <= (~distancia)? CONFIG_CMD : APAGADO;
+            next_state <= (distancia)? CONFIG_CMD : APAGADO;
         end
         CONFIG_CMD: begin 
             next_state <= (command_counter == NUM_COMMANDS) ? WR_TEXT : CONFIG_CMD;
@@ -171,12 +171,12 @@ always @(*) begin
             if (mns != mns_prev) begin
                 next_state <= CHANGE_MNS;
             end else begin
-                next_state <= (data_counter == NUM_DATA) ? WR_TEXT : CHANGE_MNS;
+                next_state <= (data_counter == NUM_DATA) ? CHANGE_MNS: WR_TEXT;
                 // Se queda en WR_TEXT mostrando el mensaje continuamente
             end
         end
         CHANGE_MNS: begin
-            next_state <= CONFIG_CMD
+            next_state <= IDLE;
         end
         default: next_state = IDLE;
     endcase
@@ -229,8 +229,7 @@ always @(posedge clk_16ms) begin
                 end else begin
                     dat <= mensaje0[data_counter]; // Mensaje por defecto
                 end
-                    data_counter <= data_counter + 1;
-                end
+                data_counter <= data_counter + 1;
             end
         endcase
     end
