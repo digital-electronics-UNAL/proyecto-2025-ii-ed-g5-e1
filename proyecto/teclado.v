@@ -137,7 +137,7 @@ always @(posedge clk or posedge ~rst) begin
                         4'b1011: digito <=  4'b1011;//B
                         4'b1101: digito <=  4'b1100;//C
                         4'b1110: digito <= 4'b1101;  // D
-                        default: digito <= 4'b0001;
+                        default: digito <= 4'b0000;
                     endcase
                     key_detected <= 1;
                 end
