@@ -171,12 +171,12 @@ always @(*) begin
             if (mns != mns_prev) begin
                 next_state <= CHANGE_MNS;
             end else begin
-                next_state <= (data_counter == NUM_DATA) ? WR_TEXT : WR_TEXT;
+                next_state <= (data_counter == NUM_DATA) ? WR_TEXT : CHANGE_MNS;
                 // Se queda en WR_TEXT mostrando el mensaje continuamente
             end
         end
         CHANGE_MNS: begin
-            next_state <= (data_counter == NUM_DATA) ? WR_TEXT : WR_TEXT;
+            next_state <= CONFIG_CMD
         end
         default: next_state = IDLE;
     endcase
@@ -213,7 +213,7 @@ always @(posedge clk_16ms) begin
                 rs <= 1'b0;
                 data_counter <= 'b0;
                 mns_prev <= mns;
-                dat <= 8'b0;
+                dat <= CLEAR_DISPLAY;
             end
             WR_TEXT: begin
                 rs <= 1'b1;
@@ -229,10 +229,6 @@ always @(posedge clk_16ms) begin
                 end else begin
                     dat <= mensaje0[data_counter]; // Mensaje por defecto
                 end
-
-                if (data_counter == NUM_DATA - 1) begin
-                    data_counter <= 'b0;
-                end else begin
                     data_counter <= data_counter + 1;
                 end
             end
