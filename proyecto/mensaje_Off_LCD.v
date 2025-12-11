@@ -162,7 +162,7 @@ always @(*) begin
             next_state <= (ready_i)? APAGADO : IDLE;
         end
         APAGADO: begin
-            next_state <= (distancia)? CONFIG_CMD : APAGADO;
+            next_state <= (~distancia)? CONFIG_CMD : APAGADO;
         end
         CONFIG_CMD: begin 
             next_state <= (command_counter == NUM_COMMANDS) ? WR_TEXT : CONFIG_CMD;
