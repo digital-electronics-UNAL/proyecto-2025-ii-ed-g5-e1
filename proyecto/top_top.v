@@ -21,7 +21,7 @@ output reg p, //fuente de las resistencias pull up para teclado
 output reg rs,       
 output reg rw,
 output enable,    
-output reg [DATA_BITS-1:0] data
+output reg [7:0] data
 
 );
 
@@ -68,6 +68,22 @@ codahexa codes(.digdec(dig1), .dighex(digitoalcd)); //el que entra a la lcd
 
 
 //LCD1602_controller lcd(.clk(clk), .reset(resetl), .ready_i(ready_i), .in1(SSeg), .vis1(vis1), .rs(rs), .rw(rw), .enable(enable), .data(data))
+
+mensaje_Off_LCD pantalla(
+     .clk(clk),            
+    .reset(resetl),
+    .ready_i(ready_i),
+     .distancia(u),      //Viene de ultrasonido    
+     .mns(mns),      //Seleccionar mensaje
+    .rs(rs),        //Register select: comando o dato   
+    .rw(rw),        //Read/Write
+    .enable(enable),    
+    .dat(data)
+);
+
+
+
+
 
 
 

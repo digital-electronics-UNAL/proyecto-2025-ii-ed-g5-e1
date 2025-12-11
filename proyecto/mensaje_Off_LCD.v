@@ -20,8 +20,8 @@ localparam CONFIG_CMD = 3'b010;
 localparam WR_TEXT = 3'b011;
 localparam CHANGE_MNS = 3'b100;
 
-reg [1:0] fsm_state;
-reg [1:0] next_state;
+reg [2:0] fsm_state;
+reg [2:0] next_state;
 reg clk_16ms;
 
 // Comandos de configuración del LCD
@@ -162,7 +162,7 @@ always @(*) begin
             next_state <= (ready_i)? APAGADO : IDLE;
         end
         APAGADO: begin
-            next_state <= (distancia)? CONFIG_CMD : APAGADO;
+            next_state <= (~distancia)? CONFIG_CMD : APAGADO;
         end
         CONFIG_CMD: begin 
             next_state <= (command_counter == NUM_COMMANDS) ? WR_TEXT : CONFIG_CMD;
@@ -171,12 +171,12 @@ always @(*) begin
             if (mns != mns_prev) begin
                 next_state <= CHANGE_MNS;
             end else begin
-                next_state <= (data_counter == NUM_DATA) ? WR_TEXT : WR_TEXT;
+                next_state <= (data_counter == NUM_DATA) ? CHANGE_MNS : WR_TEXT;
                 // Se queda en WR_TEXT mostrando el mensaje continuamente
             end
         end
         CHANGE_MNS: begin
-            next_state <= (data_counter == NUM_DATA) ? WR_TEXT : WR_TEXT;
+            next_state <= CONFIG_CMD;
         end
         default: next_state = IDLE;
     endcase
@@ -211,9 +211,10 @@ always @(posedge clk_16ms) begin
             end
             CHANGE_MNS: begin
                 rs <= 1'b0;
+                dat <= CLEAR_DISPLAY;
                 data_counter <= 'b0;
+                command_counter <= 'b0;
                 mns_prev <= mns;
-                dat <= 8'b0;
             end
             WR_TEXT: begin
                 rs <= 1'b1;
@@ -229,12 +230,7 @@ always @(posedge clk_16ms) begin
                 end else begin
                     dat <= mensaje0[data_counter]; // Mensaje por defecto
                 end
-
-                if (data_counter == NUM_DATA - 1) begin
-                    data_counter <= 'b0;
-                end else begin
-                    data_counter <= data_counter + 1;
-                end
+                data_counter <= data_counter + 1;
             end
         endcase
     end
