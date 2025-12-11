@@ -18,7 +18,8 @@ localparam APAGADO = 3'b000;
 localparam IDLE = 3'b001;
 localparam CONFIG_CMD = 3'b010;
 localparam WR_TEXT = 3'b011;
-localparam CHANGE_MNS = 3'b100;
+localparam DISPLAY = 3'b100;      // Nuevo estado para mantener el display
+localparam CHANGE_MNS = 3'b101;   // Simplificado: solo limpia y cambia mensaje
 
 reg [2:0] fsm_state;
 reg [2:0] next_state;
@@ -42,7 +43,7 @@ reg Apagar;
 
 // Banco de registros para comandos y datos
 reg [DATA_BITS-1:0] config_mem [0:NUM_COMMANDS-1]; 
-reg [DATA_BITS-1:0] mensaje0 [0:NUM_DATA-1]; //Usario
+reg [DATA_BITS-1:0] mensaje0 [0:NUM_DATA-1]; //Usuario
 reg [DATA_BITS-1:0] mensaje1 [0:NUM_DATA-1]; //Clave
 reg [DATA_BITS-1:0] mensaje2 [0:NUM_DATA-1]; //Abierto
 reg [DATA_BITS-1:0] mensaje3 [0:NUM_DATA-1]; //Intruso
@@ -138,6 +139,7 @@ initial begin
     mensaje3[15] <= " ";
 end
 
+// Generador de reloj de 16ms
 always @(posedge clk) begin
     if (clk_counter == COUNT_MAX-1) begin
         clk_16ms <= ~clk_16ms;
@@ -156,38 +158,49 @@ always @(posedge clk_16ms) begin
     end
 end
 
+// Lógica combinacional de transiciones de estado
 always @(*) begin
     case(fsm_state)
         IDLE: begin
             next_state <= (ready_i)? APAGADO : IDLE;
         end
+        
         APAGADO: begin
             next_state <= (~distancia)? CONFIG_CMD : APAGADO;
         end
+        
         CONFIG_CMD: begin 
             next_state <= (command_counter == NUM_COMMANDS) ? WR_TEXT : CONFIG_CMD;
         end
+        
         WR_TEXT: begin
-            if (mns != mns_prev) begin
-                next_state <= CHANGE_MNS;
-            end else begin
-                next_state <= (data_counter == NUM_DATA) ? CHANGE_MNS : WR_TEXT;
-                // Se queda en WR_TEXT mostrando el mensaje continuamente
-            end
+            // Cuando termina de escribir, va a DISPLAY
+            next_state <= (data_counter == NUM_DATA) ? DISPLAY : WR_TEXT;
         end
+        
+        DISPLAY: begin
+            // Solo cambia de mensaje si mns es diferente
+            next_state <= (mns != mns_prev) ? CHANGE_MNS : DISPLAY;
+        end
+        
         CHANGE_MNS: begin
-            next_state <= CONFIG_CMD;
+            // Después de limpiar, escribe el nuevo mensaje
+            next_state <= WR_TEXT;
         end
+        
         default: next_state = IDLE;
     endcase
 end
 
+// Lógica secuencial de las salidas y contadores
 always @(posedge clk_16ms) begin
     if (reset == 0) begin
         command_counter <= 'b0;
         data_counter <= 'b0;
         dat <= 'b0;
         mns_prev <= 2'b0;
+        rs <= 1'b0;
+        Apagar <= 1'b0;
     end else begin
         case (next_state)
             IDLE: begin
@@ -196,41 +209,47 @@ always @(posedge clk_16ms) begin
                 rs <= 1'b0;
                 dat <= 'b0;
                 mns_prev <= mns;
+                Apagar <= 1'b0;
             end
+            
             APAGADO: begin
                 rs <= 1'b0;
                 dat <= DISPLAY_OFF;
                 Apagar <= 1'b1;
             end
+            
             CONFIG_CMD: begin
                 rs <= 1'b0;
                 command_counter <= command_counter + 1;
                 dat <= config_mem[command_counter];
-                mns_prev <= mns;
                 Apagar <= 1'b0;
             end
-            CHANGE_MNS: begin
-                rs <= 1'b0;
-                dat <= CLEAR_DISPLAY;
-                data_counter <= 'b0;
-                command_counter <= 'b0;
-                mns_prev <= mns;
-            end
+            
             WR_TEXT: begin
                 rs <= 1'b1;
                 // Seleccionar mensaje según mns
-                if (mns == 2'b00) begin
-                    dat <= mensaje0[data_counter];
-                end else if (mns == 2'b01) begin
-                    dat <= mensaje1[data_counter];
-                end else if (mns == 2'b10) begin
-                    dat <= mensaje2[data_counter];
-                end else if (mns == 2'b11) begin
-                    dat <= mensaje3[data_counter];
-                end else begin
-                    dat <= mensaje0[data_counter]; // Mensaje por defecto
-                end
+                case (mns)
+                    2'b00: dat <= mensaje0[data_counter];
+                    2'b01: dat <= mensaje1[data_counter];
+                    2'b10: dat <= mensaje2[data_counter];
+                    2'b11: dat <= mensaje3[data_counter];
+                    default: dat <= mensaje0[data_counter];
+                endcase
                 data_counter <= data_counter + 1;
+            end
+            
+            DISPLAY: begin
+                // Mantener el mensaje en pantalla sin escribir
+                rs <= 1'b1;
+                // No se incrementan contadores, no se modifica dat
+            end
+            
+            CHANGE_MNS: begin
+                rs <= 1'b0;
+                dat <= CLEAR_DISPLAY;    // Solo limpia la pantalla
+                data_counter <= 'b0;     // Reinicia contador de datos
+                command_counter <= 'b0;  // Reinicia contador de comandos (por seguridad)
+                mns_prev <= mns;         // Actualiza el mensaje anterior
             end
         endcase
     end
