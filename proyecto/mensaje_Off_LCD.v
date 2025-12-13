@@ -38,7 +38,6 @@ reg [$clog2(NUM_DATA):0] data_counter;
 
 // Registro para detectar cambio en mns
 reg [1:0] mns_prev;
-reg Apagar;
 
 // Banco de registros para comandos y datos
 reg [DATA_BITS-1:0] config_mem [0:NUM_COMMANDS-1]; 
@@ -58,7 +57,6 @@ initial begin
     clk_16ms <= 1'b0;
     clk_counter <= 'b0;
     mns_prev <= 2'b0;
-    Apagar <= 1'b0;
     
     config_mem[0] <= LINES2_MATRIX5x8_MODE8bit;
     config_mem[1] <= SHIFT_CURSOR_RIGHT;
@@ -200,14 +198,12 @@ always @(posedge clk_16ms) begin
             APAGADO: begin
                 rs <= 1'b0;
                 dat <= DISPLAY_OFF;
-                Apagar <= 1'b1;
             end
             CONFIG_CMD: begin
                 rs <= 1'b0;
                 command_counter <= command_counter + 1;
                 dat <= config_mem[command_counter];
                 mns_prev <= mns;
-                Apagar <= 1'b0;
             end
             CHANGE_MNS: begin
                 rs <= 1'b0;
