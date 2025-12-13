@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Dec 12 15:34:45 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : lcd_tecl
+Top-level Entity Name : lcd_tecl
+Family : Cyclone IV E
+Total logic elements : 299
+    Total combinational functions : 290
+    Dedicated logic registers : 151
+Total registers : 151
+Total pins : 25
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

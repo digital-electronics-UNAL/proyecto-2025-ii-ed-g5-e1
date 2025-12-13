@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -4.142
+TNS   : -233.509
+
+Type  : Slow 1200mV 85C Model Setup 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : -2.766
+TNS   : -51.018
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -132.369
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : -1.487
+TNS   : -34.201
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.875
+TNS   : -214.263
+
+Type  : Slow 1200mV 0C Model Setup 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : -2.528
+TNS   : -45.300
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -132.369
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : -1.487
+TNS   : -34.201
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.199
+TNS   : -52.259
+
+Type  : Fast 1200mV 0C Model Setup 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : -0.614
+TNS   : -9.420
+
+Type  : Fast 1200mV 0C Model Hold 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : 0.177
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -95.651
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'mensaje_Off_LCD:afu|clk_16ms'
+Slack : -1.000
+TNS   : -23.000
+
+------------------------------------------------------------

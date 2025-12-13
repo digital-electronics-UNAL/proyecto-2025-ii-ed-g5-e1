@@ -1,0 +1,8 @@
+
+State Machine - |teclado|state
+Name state.FILA_3 state.FILA_2 state.FILA_1 state.IDLE state.FILA_4 
+state.IDLE 0 0 0 0 0 
+state.FILA_1 0 0 1 1 0 
+state.FILA_2 0 1 0 1 0 
+state.FILA_3 1 0 0 1 0 
+state.FILA_4 0 0 0 1 1 

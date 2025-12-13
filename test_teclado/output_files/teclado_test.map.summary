@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Dec 11 11:19:44 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : teclado_test
+Top-level Entity Name : teclado
+Family : Cyclone IV E
+Total logic elements : 83
+    Total combinational functions : 79
+    Dedicated logic registers : 44
+Total registers : 44
+Total pins : 16
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

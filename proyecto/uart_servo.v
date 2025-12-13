@@ -6,6 +6,13 @@ module uart_servo (
     output reg buzzer
 );
 
+initial begin
+    buzzer =1;
+end
+
+
+
+
 uart_lock_control uart_lock_inst (
     .clk(clk),        // Conectar al reloj principal
     .rst(rst),        // Conectar a la señal de reset

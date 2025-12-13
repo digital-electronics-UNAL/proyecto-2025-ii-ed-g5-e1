@@ -1,5 +1,5 @@
 Analysis & Synthesis report for uartservo
-Thu Dec 11 05:58:13 2025
+Thu Dec 11 07:16:03 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -48,15 +48,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Dec 11 05:58:13 2025           ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 11 07:16:03 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; uartservo                                       ;
 ; Top-level Entity Name              ; uart_servo                                      ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 143                                             ;
-;     Total combinational functions  ; 141                                             ;
-;     Dedicated logic registers      ; 86                                              ;
-; Total registers                    ; 86                                              ;
+; Total logic elements               ; 145                                             ;
+;     Total combinational functions  ; 143                                             ;
+;     Dedicated logic registers      ; 87                                              ;
+; Total registers                    ; 87                                              ;
 ; Total pins                         ; 5                                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -185,20 +185,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 143       ;
+; Estimated Total logic elements              ; 145       ;
 ;                                             ;           ;
-; Total combinational functions               ; 141       ;
+; Total combinational functions               ; 143       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 57        ;
+;     -- 4 input functions                    ; 60        ;
 ;     -- 3 input functions                    ; 16        ;
-;     -- <=2 input functions                  ; 68        ;
+;     -- <=2 input functions                  ; 67        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 82        ;
+;     -- normal mode                          ; 84        ;
 ;     -- arithmetic mode                      ; 59        ;
 ;                                             ;           ;
-; Total registers                             ; 86        ;
-;     -- Dedicated logic registers            ; 86        ;
+; Total registers                             ; 87        ;
+;     -- Dedicated logic registers            ; 87        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 5         ;
@@ -206,9 +206,9 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 86        ;
-; Total fan-out                               ; 708       ;
-; Average fan-out                             ; 2.99      ;
+; Maximum fan-out                             ; 87        ;
+; Total fan-out                               ; 720       ;
+; Average fan-out                             ; 3.00      ;
 +---------------------------------------------+-----------+
 
 
@@ -217,7 +217,7 @@ on the Quartus Prime software download page.
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Entity Name       ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+-------------------+--------------+
-; |uart_servo                           ; 141 (37)            ; 86 (29)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |uart_servo                                                       ; uart_servo        ; work         ;
+; |uart_servo                           ; 143 (39)            ; 87 (30)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |uart_servo                                                       ; uart_servo        ; work         ;
 ;    |servo_control:servo_inst|         ; 37 (37)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_servo|servo_control:servo_inst                              ; servo_control     ; work         ;
 ;    |uart_lock_control:uart_lock_inst| ; 67 (3)              ; 36 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_servo|uart_lock_control:uart_lock_inst                      ; uart_lock_control ; work         ;
 ;       |uart_rx:uart_rx_inst|          ; 64 (64)             ; 35 (35)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_servo|uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst ; uart_rx           ; work         ;
@@ -249,11 +249,10 @@ Encoding Type:  One-Hot
 ; servo_control:servo_inst|pulse_width[11..13]                      ; Stuck at GND due to stuck port data_in ;
 ; servo_control:servo_inst|pulse_width[15]                          ; Stuck at VCC due to stuck port data_in ;
 ; servo_control:servo_inst|pulse_width[17..19]                      ; Stuck at GND due to stuck port data_in ;
-; state_buzzer                                                      ; Merged with buzzer~reg0                ;
 ; servo_control:servo_inst|pulse_width[4..8,10,14,16]               ; Merged with pos_act                    ;
 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main~2 ; Lost fanout                            ;
 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_SM_Main~3 ; Lost fanout                            ;
-; Total Number of Removed Registers = 23                            ;                                        ;
+; Total Number of Removed Registers = 22                            ;                                        ;
 +-------------------------------------------------------------------+----------------------------------------+
 
 
@@ -262,7 +261,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 86    ;
+; Total registers                              ; 87    ;
 ; Number of registers using Synchronous Clear  ; 77    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 1     ;
@@ -277,9 +276,10 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------+---------+
 ; Inverted Register                                                 ; Fan out ;
 +-------------------------------------------------------------------+---------+
+; buzzer~reg0                                                       ; 2       ;
 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Data   ; 13      ;
 ; uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Rx_Data_R ; 1       ;
-; Total number of inverted registers = 2                            ;         ;
+; Total number of inverted registers = 3                            ;         ;
 +-------------------------------------------------------------------+---------+
 
 
@@ -288,8 +288,8 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
-; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |uart_servo|buzzer_counter[23]                                                     ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |uart_servo|uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[4] ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |uart_servo|buzzer_counter[24]                                                     ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |uart_servo|uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Clock_Count[3] ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |uart_servo|uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst|r_Bit_Index      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 
@@ -310,22 +310,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 5                           ;
-; cycloneiii_ff         ; 86                          ;
+; cycloneiii_ff         ; 87                          ;
 ;     CLR               ; 1                           ;
 ;     ENA SCLR          ; 42                          ;
 ;     SCLR              ; 35                          ;
-;     plain             ; 8                           ;
-; cycloneiii_lcell_comb ; 141                         ;
+;     plain             ; 9                           ;
+; cycloneiii_lcell_comb ; 144                         ;
 ;     arith             ; 59                          ;
 ;         2 data inputs ; 59                          ;
-;     normal            ; 82                          ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 6                           ;
+;     normal            ; 85                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 5                           ;
 ;         3 data inputs ; 16                          ;
-;         4 data inputs ; 57                          ;
+;         4 data inputs ; 60                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.20                        ;
+; Average LUT depth     ; 3.24                        ;
 +-----------------------+-----------------------------+
 
 
@@ -334,7 +334,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -344,7 +344,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Dec 11 05:58:03 2025
+    Info: Processing started: Thu Dec 11 07:15:49 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uartservo -c uartservo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -362,14 +362,14 @@ Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.v(13): Par
 Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.v(14): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_rx.v Line: 14
 Warning (10222): Verilog HDL Parameter Declaration warning at uart_rx.v(15): Parameter Declaration in module "uart_rx" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_rx.v Line: 15
 Info (12127): Elaborating entity "uart_servo" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at uart_servo.v(47): truncated value with size 32 to match size of target (26) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_servo.v Line: 47
-Info (12128): Elaborating entity "uart_lock_control" for hierarchy "uart_lock_control:uart_lock_inst" File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_servo.v Line: 14
+Warning (10230): Verilog HDL assignment warning at uart_servo.v(54): truncated value with size 32 to match size of target (26) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_servo.v Line: 54
+Info (12128): Elaborating entity "uart_lock_control" for hierarchy "uart_lock_control:uart_lock_inst" File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_servo.v Line: 21
 Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_lock_control:uart_lock_inst|uart_rx:uart_rx_inst" File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_lock_control.v Line: 28
 Warning (10230): Verilog HDL assignment warning at uart_rx.v(75): truncated value with size 32 to match size of target (16) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_rx.v Line: 75
 Warning (10230): Verilog HDL assignment warning at uart_rx.v(84): truncated value with size 32 to match size of target (16) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_rx.v Line: 84
 Warning (10230): Verilog HDL assignment warning at uart_rx.v(94): truncated value with size 32 to match size of target (3) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_rx.v Line: 94
 Warning (10230): Verilog HDL assignment warning at uart_rx.v(109): truncated value with size 32 to match size of target (16) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_rx.v Line: 109
-Info (12128): Elaborating entity "servo_control" for hierarchy "servo_control:servo_inst" File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_servo.v Line: 22
+Info (12128): Elaborating entity "servo_control" for hierarchy "servo_control:servo_inst" File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/uart_servo.v Line: 29
 Warning (10230): Verilog HDL assignment warning at servo.v(18): truncated value with size 32 to match size of target (20) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/servo.v Line: 18
 Warning (10230): Verilog HDL assignment warning at servo.v(20): truncated value with size 32 to match size of target (20) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/servo.v Line: 20
 Warning (10230): Verilog HDL assignment warning at servo.v(24): truncated value with size 32 to match size of target (20) File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/servo.v Line: 24
@@ -377,14 +377,14 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 149 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 151 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 144 logic cells
+    Info (21061): Implemented 146 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 368 megabytes
-    Info: Processing ended: Thu Dec 11 05:58:13 2025
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 364 megabytes
+    Info: Processing ended: Thu Dec 11 07:16:03 2025
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:34
 
 

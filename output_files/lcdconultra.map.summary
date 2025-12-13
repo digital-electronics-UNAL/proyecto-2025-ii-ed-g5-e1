@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Dec 12 14:52:50 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : lcdconultra
+Top-level Entity Name : topultralcd
+Family : Cyclone IV E
+Total logic elements : 208
+    Total combinational functions : 181
+    Dedicated logic registers : 110
+Total registers : 110
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

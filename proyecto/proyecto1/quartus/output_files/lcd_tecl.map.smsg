@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at antirrebote.v(1): object "COUNT" differs only in case from object "count" in the same scope File: /home/alejandro/Desktop/proyecto1/antirrebote.v Line: 1
+Warning (10268): Verilog HDL information at lcd_controller.v(93): always construct contains both blocking and non-blocking assignments File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 93

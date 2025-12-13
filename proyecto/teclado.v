@@ -30,7 +30,7 @@ reg enable_20us;
 
 
 always @(posedge clk) begin
-p <= 1;
+   p <= 1;
 end
 
 // Generadores de enable

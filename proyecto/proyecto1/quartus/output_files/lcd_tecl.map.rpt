@@ -1,0 +1,622 @@
+Analysis & Synthesis report for lcd_tecl
+Fri Dec 12 15:34:45 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |lcd_tecl|LCD1602_controller:controla|sel_dinamic
+  9. State Machine - |lcd_tecl|LCD1602_controller:controla|fsm_state
+ 10. State Machine - |lcd_tecl|teclado:teclas|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: antirrebote:anti1
+ 16. Parameter Settings for User Entity Instance: antirrebote:anti2
+ 17. Parameter Settings for User Entity Instance: antirrebote:anti3
+ 18. Parameter Settings for User Entity Instance: antirrebote:anti4
+ 19. Parameter Settings for User Entity Instance: teclado:teclas
+ 20. Parameter Settings for User Entity Instance: LCD1602_controller:controla
+ 21. Port Connectivity Checks: "LCD1602_controller:controla"
+ 22. Port Connectivity Checks: "teclado:teclas"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Dec 12 15:34:45 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name                      ; lcd_tecl                                        ;
+; Top-level Entity Name              ; lcd_tecl                                        ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 299                                             ;
+;     Total combinational functions  ; 290                                             ;
+;     Dedicated logic registers      ; 151                                             ;
+; Total registers                    ; 151                                             ;
+; Total pins                         ; 25                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE10E22C8       ;                    ;
+; Top-level entity name                                            ; lcd_tecl           ; lcd_tecl           ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; ../antirrebote.v                 ; yes             ; User Verilog HDL File  ; /home/alejandro/Desktop/proyecto1/antirrebote.v    ;         ;
+; ../teclado.v                     ; yes             ; User Verilog HDL File  ; /home/alejandro/Desktop/proyecto1/teclado.v        ;         ;
+; ../lcd_tecl.v                    ; yes             ; User Verilog HDL File  ; /home/alejandro/Desktop/proyecto1/lcd_tecl.v       ;         ;
+; ../lcd_controller.v              ; yes             ; User Verilog HDL File  ; /home/alejandro/Desktop/proyecto1/lcd_controller.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 299       ;
+;                                             ;           ;
+; Total combinational functions               ; 290       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 119       ;
+;     -- 3 input functions                    ; 42        ;
+;     -- <=2 input functions                  ; 129       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 217       ;
+;     -- arithmetic mode                      ; 73        ;
+;                                             ;           ;
+; Total registers                             ; 151       ;
+;     -- Dedicated logic registers            ; 151       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 25        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 129       ;
+; Total fan-out                               ; 1281      ;
+; Average fan-out                             ; 2.61      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name        ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------------+--------------+
+; |lcd_tecl                        ; 290 (0)             ; 151 (0)                   ; 0           ; 0            ; 0       ; 0         ; 25   ; 0            ; |lcd_tecl                             ; lcd_tecl           ; work         ;
+;    |LCD1602_controller:controla| ; 163 (163)           ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_tecl|LCD1602_controller:controla ; LCD1602_controller ; work         ;
+;    |antirrebote:anti1|           ; 11 (11)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_tecl|antirrebote:anti1           ; antirrebote        ; work         ;
+;    |antirrebote:anti2|           ; 11 (11)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_tecl|antirrebote:anti2           ; antirrebote        ; work         ;
+;    |antirrebote:anti3|           ; 11 (11)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_tecl|antirrebote:anti3           ; antirrebote        ; work         ;
+;    |antirrebote:anti4|           ; 11 (11)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_tecl|antirrebote:anti4           ; antirrebote        ; work         ;
+;    |teclado:teclas|              ; 83 (83)             ; 43 (43)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_tecl|teclado:teclas              ; teclado            ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------+
+; State Machine - |lcd_tecl|LCD1602_controller:controla|sel_dinamic ;
++-----------------------+-------------------------------------------+
+; Name                  ; sel_dinamic.WR_DYN                        ;
++-----------------------+-------------------------------------------+
+; sel_dinamic.SetCursor ; 0                                         ;
+; sel_dinamic.WR_DYN    ; 1                                         ;
++-----------------------+-------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |lcd_tecl|LCD1602_controller:controla|fsm_state                                                            ;
++-----------------------------+-----------------------+----------------+-----------------------+-----------------------------+
+; Name                        ; fsm_state.CONFIG_CMD1 ; fsm_state.IDLE ; fsm_state.WR_Din_TEXT ; fsm_state.WR_STATIC_TEXT_1L ;
++-----------------------------+-----------------------+----------------+-----------------------+-----------------------------+
+; fsm_state.IDLE              ; 0                     ; 0              ; 0                     ; 0                           ;
+; fsm_state.CONFIG_CMD1       ; 1                     ; 1              ; 0                     ; 0                           ;
+; fsm_state.WR_STATIC_TEXT_1L ; 0                     ; 1              ; 0                     ; 1                           ;
+; fsm_state.WR_Din_TEXT       ; 0                     ; 1              ; 1                     ; 0                           ;
++-----------------------------+-----------------------+----------------+-----------------------+-----------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------+
+; State Machine - |lcd_tecl|teclado:teclas|state                                        ;
++--------------+--------------+--------------+--------------+------------+--------------+
+; Name         ; state.FILA_3 ; state.FILA_2 ; state.FILA_1 ; state.IDLE ; state.FILA_4 ;
++--------------+--------------+--------------+--------------+------------+--------------+
+; state.IDLE   ; 0            ; 0            ; 0            ; 0          ; 0            ;
+; state.FILA_1 ; 0            ; 0            ; 1            ; 1          ; 0            ;
+; state.FILA_2 ; 0            ; 1            ; 0            ; 1          ; 0            ;
+; state.FILA_3 ; 1            ; 0            ; 0            ; 1          ; 0            ;
+; state.FILA_4 ; 0            ; 0            ; 0            ; 1          ; 1            ;
++--------------+--------------+--------------+--------------+------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++--------------------------------------------+--------------------------------------------------------+
+; Register name                              ; Reason for Removal                                     ;
++--------------------------------------------+--------------------------------------------------------+
+; LCD1602_controller:controla|message[6][5]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[7][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[7][4]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[8][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][4] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][3] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][2] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][1] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][0] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[9][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[10][7] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[11][7] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[12][7] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[12][3] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[13][7] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[13][4] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[13][2] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[13][1] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[14][7] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[14][4] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][7] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[15][6] ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[6][6]  ; Stuck at VCC due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[6][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[5][5]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[5][6]  ; Stuck at VCC due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[5][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[4][3]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[4][5]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[4][6]  ; Stuck at VCC due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[4][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[3][3]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[3][5]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[3][6]  ; Stuck at VCC due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[3][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[2][4]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[2][5]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[2][6]  ; Stuck at VCC due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[2][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[1][4]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[1][5]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[1][6]  ; Stuck at VCC due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[1][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[0][1]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[0][4]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[0][7]  ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|message[1][1]  ; Merged with LCD1602_controller:controla|message[0][0]  ;
+; LCD1602_controller:controla|message[2][0]  ; Merged with LCD1602_controller:controla|message[0][0]  ;
+; LCD1602_controller:controla|message[6][4]  ; Merged with LCD1602_controller:controla|message[1][0]  ;
+; LCD1602_controller:controla|message[3][0]  ; Merged with LCD1602_controller:controla|message[11][5] ;
+; LCD1602_controller:controla|message[6][2]  ; Merged with LCD1602_controller:controla|message[11][5] ;
+; LCD1602_controller:controla|message[4][2]  ; Merged with LCD1602_controller:controla|message[4][0]  ;
+; LCD1602_controller:controla|message[1][3]  ; Merged with LCD1602_controller:controla|message[11][6] ;
+; LCD1602_controller:controla|message[3][4]  ; Merged with LCD1602_controller:controla|message[11][6] ;
+; LCD1602_controller:controla|message[5][0]  ; Merged with LCD1602_controller:controla|message[11][6] ;
+; LCD1602_controller:controla|message[5][4]  ; Merged with LCD1602_controller:controla|message[15][5] ;
+; LCD1602_controller:controla|message[6][0]  ; Merged with LCD1602_controller:controla|message[15][5] ;
+; LCD1602_controller:controla|message[10][1] ; Merged with LCD1602_controller:controla|message[0][5]  ;
+; LCD1602_controller:controla|message[10][3] ; Merged with LCD1602_controller:controla|message[0][5]  ;
+; LCD1602_controller:controla|message[11][3] ; Merged with LCD1602_controller:controla|message[0][5]  ;
+; LCD1602_controller:controla|message[7][0]  ; Merged with LCD1602_controller:controla|message[0][5]  ;
+; LCD1602_controller:controla|message[7][6]  ; Merged with LCD1602_controller:controla|message[0][5]  ;
+; LCD1602_controller:controla|message[10][0] ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[10][6] ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[12][6] ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[3][1]  ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[5][1]  ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[8][0]  ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[8][6]  ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[9][6]  ; Merged with LCD1602_controller:controla|message[0][3]  ;
+; LCD1602_controller:controla|message[12][1] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[12][4] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[13][0] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[13][3] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[13][6] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[14][0] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[14][1] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[14][2] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[14][3] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[14][6] ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[8][4]  ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[9][0]  ; Merged with LCD1602_controller:controla|message[10][2] ;
+; LCD1602_controller:controla|message[11][0] ; Merged with LCD1602_controller:controla|message[10][4] ;
+; LCD1602_controller:controla|message[9][4]  ; Merged with LCD1602_controller:controla|message[10][4] ;
+; LCD1602_controller:controla|message[12][0] ; Merged with LCD1602_controller:controla|message[11][2] ;
+; LCD1602_controller:controla|message[12][2] ; Merged with LCD1602_controller:controla|message[11][2] ;
+; LCD1602_controller:controla|digito[0]      ; Merged with LCD1602_controller:controla|data_prev[0]   ;
+; LCD1602_controller:controla|message[2][2]  ; Merged with LCD1602_controller:controla|message[2][1]  ;
+; LCD1602_controller:controla|message[3][2]  ; Merged with LCD1602_controller:controla|message[2][3]  ;
+; LCD1602_controller:controla|message[6][1]  ; Merged with LCD1602_controller:controla|message[2][3]  ;
+; LCD1602_controller:controla|message[7][1]  ; Merged with LCD1602_controller:controla|message[2][3]  ;
+; LCD1602_controller:controla|message[7][2]  ; Merged with LCD1602_controller:controla|message[2][3]  ;
+; LCD1602_controller:controla|message[7][3]  ; Merged with LCD1602_controller:controla|message[2][3]  ;
+; LCD1602_controller:controla|message[11][4] ; Merged with LCD1602_controller:controla|message[11][1] ;
+; LCD1602_controller:controla|digito[1]      ; Merged with LCD1602_controller:controla|data_prev[1]   ;
+; LCD1602_controller:controla|message[12][5] ; Merged with LCD1602_controller:controla|message[10][5] ;
+; LCD1602_controller:controla|message[5][2]  ; Merged with LCD1602_controller:controla|message[10][5] ;
+; LCD1602_controller:controla|message[8][5]  ; Merged with LCD1602_controller:controla|message[10][5] ;
+; LCD1602_controller:controla|message[9][5]  ; Merged with LCD1602_controller:controla|message[10][5] ;
+; LCD1602_controller:controla|message[9][3]  ; Merged with LCD1602_controller:controla|message[9][2]  ;
+; LCD1602_controller:controla|digito[2]      ; Merged with LCD1602_controller:controla|data_prev[2]   ;
+; LCD1602_controller:controla|message[8][3]  ; Merged with LCD1602_controller:controla|message[6][3]  ;
+; LCD1602_controller:controla|digito[3]      ; Merged with LCD1602_controller:controla|data_prev[3]   ;
+; LCD1602_controller:controla|data_prev[5]   ; Merged with LCD1602_controller:controla|data_prev[4]   ;
+; LCD1602_controller:controla|digito[4,5]    ; Merged with LCD1602_controller:controla|data_prev[4]   ;
+; LCD1602_controller:controla|message[7][5]  ; Merged with LCD1602_controller:controla|message[0][6]  ;
+; LCD1602_controller:controla|message[14][5] ; Merged with LCD1602_controller:controla|message[13][5] ;
+; LCD1602_controller:controla|data_prev[7]   ; Merged with LCD1602_controller:controla|data_prev[6]   ;
+; LCD1602_controller:controla|digito[6,7]    ; Merged with LCD1602_controller:controla|data_prev[6]   ;
+; LCD1602_controller:controla|message[5][3]  ; Merged with LCD1602_controller:controla|message[0][2]  ;
+; LCD1602_controller:controla|data_prev[6]   ; Stuck at GND due to stuck port data_in                 ;
+; LCD1602_controller:controla|sel_dinamic~3  ; Lost fanout                                            ;
+; LCD1602_controller:controla|sel_dinamic~4  ; Lost fanout                                            ;
+; LCD1602_controller:controla|fsm_state~2    ; Lost fanout                                            ;
+; teclado:teclas|state~4                     ; Lost fanout                                            ;
+; teclado:teclas|state~5                     ; Lost fanout                                            ;
+; LCD1602_controller:controla|message[4][0]  ; Merged with LCD1602_controller:controla|message[1][2]  ;
+; LCD1602_controller:controla|message[4][1]  ; Merged with LCD1602_controller:controla|message[2][3]  ;
+; LCD1602_controller:controla|message[4][4]  ; Merged with LCD1602_controller:controla|message[10][5] ;
+; teclado:teclas|counter_10ms[0]             ; Merged with teclado:teclas|counter_20us[0]             ;
+; teclado:teclas|counter_10ms[1]             ; Merged with teclado:teclas|counter_20us[1]             ;
+; Total Number of Removed Registers = 123    ;                                                        ;
++--------------------------------------------+--------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 151   ;
+; Number of registers using Synchronous Clear  ; 45    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 43    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; teclado:teclas|row[0]                  ; 1       ;
+; teclado:teclas|row[1]                  ; 1       ;
+; teclado:teclas|row[2]                  ; 1       ;
+; teclado:teclas|row[3]                  ; 1       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |lcd_tecl|LCD1602_controller:controla|data_prev[0] ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |lcd_tecl|teclado:teclas|digito[1]                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: antirrebote:anti1 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; COUNT          ; 100   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: antirrebote:anti2 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; COUNT          ; 100   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: antirrebote:anti3 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; COUNT          ; 100   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: antirrebote:anti4 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; COUNT          ; 100   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: teclado:teclas ;
++----------------+--------+-----------------------------------+
+; Parameter Name ; Value  ; Type                              ;
++----------------+--------+-----------------------------------+
+; CICLOS_10MS    ; 500000 ; Signed Integer                    ;
+; CICLOS_20US    ; 1000   ; Signed Integer                    ;
++----------------+--------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD1602_controller:controla ;
++------------------+--------+----------------------------------------------+
+; Parameter Name   ; Value  ; Type                                         ;
++------------------+--------+----------------------------------------------+
+; NUM_COMMANDS     ; 4      ; Signed Integer                               ;
+; MAX_NUM_PASS     ; 9999   ; Signed Integer                               ;
+; NUM_DATA         ; 16     ; Signed Integer                               ;
+; NUM_DATA_PERLINE ; 16     ; Signed Integer                               ;
+; DATA_BITS        ; 8      ; Signed Integer                               ;
+; COUNT_MAX        ; 800000 ; Signed Integer                               ;
++------------------+--------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "LCD1602_controller:controla"    ;
++----------------+-------+----------+------------------------+
+; Port           ; Type  ; Severity ; Details                ;
++----------------+-------+----------+------------------------+
+; message_change ; Input ; Info     ; Explicitly unconnected ;
+; data_in[7..4]  ; Input ; Info     ; Stuck at GND           ;
++----------------+-------+----------+------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "teclado:teclas"                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; key_detected ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 25                          ;
+; cycloneiii_ff         ; 151                         ;
+;     CLR               ; 41                          ;
+;     ENA               ; 6                           ;
+;     ENA CLR           ; 2                           ;
+;     SCLR              ; 45                          ;
+;     plain             ; 57                          ;
+; cycloneiii_lcell_comb ; 295                         ;
+;     arith             ; 73                          ;
+;         2 data inputs ; 72                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 222                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 41                          ;
+;         3 data inputs ; 41                          ;
+;         4 data inputs ; 119                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.86                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Fri Dec 12 15:34:29 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd_tecl -c lcd_tecl
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /home/alejandro/Desktop/proyecto1/antirrebote.v
+    Info (12023): Found entity 1: antirrebote File: /home/alejandro/Desktop/proyecto1/antirrebote.v Line: 1
+Warning (10261): Verilog HDL Event Control warning at teclado.v(35): Event Control contains a complex event expression File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 35
+Warning (10261): Verilog HDL Event Control warning at teclado.v(78): Event Control contains a complex event expression File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file /home/alejandro/Desktop/proyecto1/teclado.v
+    Info (12023): Found entity 1: teclado File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/alejandro/Desktop/proyecto1/lcd_tecl.v
+    Info (12023): Found entity 1: lcd_tecl File: /home/alejandro/Desktop/proyecto1/lcd_tecl.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/alejandro/Desktop/proyecto1/lcd_controller.v
+    Info (12023): Found entity 1: LCD1602_controller File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 1
+Info (12127): Elaborating entity "lcd_tecl" for the top level hierarchy
+Info (12128): Elaborating entity "antirrebote" for hierarchy "antirrebote:anti1" File: /home/alejandro/Desktop/proyecto1/lcd_tecl.v Line: 32
+Warning (10230): Verilog HDL assignment warning at antirrebote.v(14): truncated value with size 32 to match size of target (7) File: /home/alejandro/Desktop/proyecto1/antirrebote.v Line: 14
+Info (12128): Elaborating entity "teclado" for hierarchy "teclado:teclas" File: /home/alejandro/Desktop/proyecto1/lcd_tecl.v Line: 60
+Warning (10230): Verilog HDL assignment warning at teclado.v(48): truncated value with size 32 to match size of target (19) File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 48
+Warning (10230): Verilog HDL assignment warning at teclado.v(56): truncated value with size 32 to match size of target (10) File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 56
+Info (10264): Verilog HDL Case Statement information at teclado.v(90): all case item expressions in this case statement are onehot File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 90
+Info (12128): Elaborating entity "LCD1602_controller" for hierarchy "LCD1602_controller:controla" File: /home/alejandro/Desktop/proyecto1/lcd_tecl.v Line: 73
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(80): truncated value with size 32 to match size of target (20) File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 80
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(127): truncated value with size 32 to match size of target (3) File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 127
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(131): truncated value with size 32 to match size of target (5) File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 131
+Warning (10030): Net "config_mem.data_a" at lcd_controller.v(55) has no driver or initial value, using a default initial value '0' File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 55
+Warning (10030): Net "config_mem.waddr_a" at lcd_controller.v(55) has no driver or initial value, using a default initial value '0' File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 55
+Warning (10030): Net "config_mem.we_a" at lcd_controller.v(55) has no driver or initial value, using a default initial value '0' File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 55
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "LCD1602_controller:controla|config_mem" is uninferred due to inappropriate RAM size File: /home/alejandro/Desktop/proyecto1/lcd_controller.v Line: 55
+Info (13000): Registers with preset signals will power-up high File: /home/alejandro/Desktop/proyecto1/teclado.v Line: 86
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "rw" is stuck at GND File: /home/alejandro/Desktop/proyecto1/lcd_tecl.v Line: 18
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 334 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 309 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 377 megabytes
+    Info: Processing ended: Fri Dec 12 15:34:45 2025
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:35
+
+

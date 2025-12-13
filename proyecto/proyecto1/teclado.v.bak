@@ -1,0 +1,150 @@
+module teclado #(
+    parameter CICLOS_10MS = 500000,
+    parameter CICLOS_20US = 1000
+)(
+    input wire clk,
+    input wire rst,
+    input [3:0] column,
+    output reg [3:0] row,
+    output reg [4:0] digito,
+    output reg key_detected
+    
+);
+
+localparam IDLE   = 3'd0;
+localparam FILA_1 = 3'd1;
+localparam FILA_2 = 3'd2;
+localparam FILA_3 = 3'd3;
+localparam FILA_4 = 3'd4;
+
+reg [2:0] state, next_state;
+reg col_low;
+
+reg [$clog2(CICLOS_10MS)-1:0] counter_10ms;
+reg enable_10ms;
+
+reg [$clog2(CICLOS_20US)-1:0] counter_20us;
+reg enable_20us;
+
+
+
+
+
+
+// Generadores de enable
+always @(posedge clk or posedge ~rst) begin
+    if (~rst) begin
+        counter_10ms <= 0;
+        enable_10ms  <= 0;
+        counter_20us <= 0;
+        enable_20us  <= 0;
+    end else begin
+        // 10 ms
+        enable_10ms <= 0;
+        if (counter_10ms == CICLOS_10MS-1) begin
+            counter_10ms <= 0;
+            enable_10ms  <= 1;
+        end else
+            counter_10ms <= counter_10ms + 1;
+
+        // 20 us
+        enable_20us <= 0;
+        if (counter_20us == CICLOS_20US-1) begin
+            counter_20us <= 0;
+            enable_20us  <= 1;
+        end else
+            counter_20us <= counter_20us + 1;
+    end
+end
+
+// Estado siguiente (combinacional)
+always @(*) begin
+    next_state = state;
+    case (state)
+        IDLE:   if (enable_10ms) next_state = FILA_1;
+        FILA_1: if (col_low)     next_state = FILA_1;
+                else if (enable_20us) next_state = FILA_2;
+        FILA_2: if (col_low)     next_state = FILA_2;
+                else if (enable_20us) next_state = FILA_3;
+        FILA_3: if (col_low)     next_state = FILA_3;
+                else if (enable_20us) next_state = FILA_4;
+        FILA_4: if (col_low)     next_state = FILA_4;
+                else if (enable_20us) next_state = IDLE;
+        default: next_state = IDLE;
+    endcase
+end
+
+// ÚNICO bloque secuencial: aquí se actualiza TODO lo que depende del reloj
+always @(posedge clk or posedge ~rst) begin
+    if (~rst) begin
+        state        <= IDLE;
+        row          <= 4'b1111;
+        digito       <= 5'b00000;
+        key_detected <= 0;
+        col_low      <= 0;
+    end else begin
+        state        <= next_state;
+        col_low      <= (column != 4'b1111);
+        key_detected <= 0;  // pulso de 1 ciclo
+
+        case (state)
+            FILA_1: begin
+                row <= 4'b0111;
+                if (col_low) begin
+                    case (column)
+                        4'b0111: digito <= 5'b00001;  // 1
+                        4'b1011: digito <= 5'b00100; //4
+                        4'b1101: digito <= 5'b00111; //7
+                        4'b1110: digito <= 5'b01110;  // *
+                        default: digito <= 5'b11111;  // error
+                    endcase
+                    key_detected <= 1;
+                end
+            end
+            FILA_2: begin
+                row <= 4'b1011;
+                if (col_low) begin
+                    case (column)
+                        4'b0111: digito <= 5'b00010;  // 2
+                        4'b1011: digito <= 5'b00101;//5
+                        4'b1101: digito <= 5'b01000;//8
+                        4'b1110: digito <= 5'b00000;  // 0
+                        default: digito <= 5'b11111;
+                    endcase
+                    key_detected <= 1;
+                end
+            end
+            FILA_3: begin
+                row <= 4'b1101;
+                if (col_low) begin
+                    case (column)
+                        4'b0111: digito <= 5'b00011;  // 3
+                        4'b1011: digito <= 5'b00110;//6
+                        4'b1101: digito <= 5'b01001;//9
+                        4'b1110: digito <= 5'b01111;  // #
+                        default: digito <= 5'b11111;
+                    endcase
+                    key_detected <= 1;
+                end
+            end
+            FILA_4: begin
+                row <= 4'b1110;
+                if (col_low) begin
+                    case (column)
+                        4'b0111: digito <= 5'b01010;  // A
+                        4'b1011: digito <= 5'b01011;//B
+                        4'b1101: digito <= 5'b01100;//C
+                        4'b1110: digito <= 5'b01101;  // D
+                        default: digito <= 5'b11111;
+                    endcase
+                    key_detected <= 1;
+                end
+            end
+            default: begin
+                row <= 4'b1111;
+            end
+        endcase
+    end
+end
+
+endmodule

@@ -1,0 +1,62 @@
+module lcd_tecl(
+
+    input wire clk,
+    input wire rst,
+    input [3:0] column,
+    output reg [3:0] row,
+   
+    input reset,          
+    input ready_i,
+
+  //  input message_change,
+
+    //input [1:0] sel_msg,
+
+    // Numero de 4 digitos correspondiente a la contraseña
+    output reg rs,        
+    output reg rw,
+    output enable,    
+    output reg [7:0] data
+);
+
+    wire [3:0] digito1;
+    wire key1;
+teclado teclas(
+    .clk(clk),
+    .rst(rst),
+    .column(column),
+    .row(row),
+    .digito(digito1),
+    .key_detected(key1)
+
+);
+initial begin
+    row = 4'b0000;
+end
+
+LCD1602_controller controla(
+    .clk(clk),            
+    .reset(reset),          
+    .ready_i(ready_i),
+    .message_change(),
+    .sel_msg(2'b00),
+    .data_in(digito1), // Numero de 4 digitos correspondiente a la contraseña
+    .rs(rs),        
+    .rw(rw),
+    .enable(enable),    
+    .data(data)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+endmodule
