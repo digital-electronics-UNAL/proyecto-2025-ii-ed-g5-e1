@@ -14,32 +14,42 @@
 
 (Hermes, desde cualquier lugar del mundo, Hestia, brinda seguridad a su hogar)
 
-
 Sistema electrónico para la gestión de entradas a hogares.
 
 # Códigos
 
-* [Teclado y pantalla](/src/teclado.v)
-* [Ultrasonido y pantalla](/src/hcsr_04_distancia.v)
-* [Protocolo uart](src/uart_lock_control.v)
-* [Protocolo Uart](src/uart_rx.v)
-* [Protocolo uart y servo](src/uart_servo.v)
+* [Teclado y pantalla](/proyecto/teclado.v)
+* [Ultrasonido y pantalla](/proyecto/hcsr_04_distancia.v)
+* [Protocolo UART receptor](proyecto/uart_lock_control.v)
+* [Protocolo UART interpretar](proyecto/uart_rx.v)
+* [Protocolo uart y servo](proyecto/uart_servo.v)
 
 # Documentación
 ## Descripción de la arquitectura
 
+De lo planteado, se logró implementar el sistema de apertura de la cerradura de forma remota por medio del protocolo UART
 
-## Diagramas de la arquitectura
+La comunicación inicia con el módulo uart_rx, encargado de recibir la información serial proveniente del pin RX siguiendo el protocolo UART estándar. Este módulo sincroniza la señal de entrada, detecta el bit de START, recibe los 8 bits de datos, detecta el bit de STOP y, una vez completado el proceso, entrega el byte recibido junto con una señal de dato válido. De esta manera, convierte la comunicación serial en datos que pueden ser usados por el resto del sistema.
 
+El módulo “uart_lock_control” utiliza al receptor UART para interpretar los datos recibidos. Cada byte válido es comparado con códigos ASCII permitiendo controlar el estado de la cerradura. Cuando se recibe el carácter ‘A’, se envía la señal de abrir la cerradura, mientras que al recibir el carácter ‘C’ se envía la señal de cierre. El estado se mantiene hasta que llega un nuevo comando.
+
+Finalmente, el módulo “uart_servo” actúa como top de este sistema. Toma la señal de cerrar o abrir generada por “uart_lock_control” y la utiliza para posicionar un servomotor mediante una señal Pulse Width Modulation (PWM), en 0° o 90° respectivamente. Además, este módulo incorpora el funcionamiento del buzzer, el cual se activa durante un intervalo de tiempo cada vez que se detecta un cambio en la posición del servo.
+
+
+## Diagrama de la arquitectura
+
+A continuación se describen gráficamente los módulos utilizados, indicando únicamente las señales que entran o salen de la FPGA hacia los periféricos, sin las señales que involucren el funcionamiento de los periféricos por separado.
+
+
+<p align="center">
+  <img src="imagenes/DiagramaArq.png" width="600">
+</p>
 
 ## Simulaciones
 
-###
-### Teclado
-
 ### Mensajes en la LCD
 
-Para verificar el comportamiento del módulo [mensaje_Off_LCD](/src/mensaje_Off_LCD.v) se realizó el test bench [tb_mensaje_LCD](/src/tb_mensaje_LCD.v). 
+Para verificar el comportamiento del módulo [mensaje_Off_LCD](/proyecto/mensaje_Off_LCD.v) se realizó el test bench [tb_mensaje_LCD](/proyecto/tb_mensaje_LCD.v). 
 
 #### Módulo
 
@@ -66,7 +76,7 @@ El módulo almacena los mensajes en bancos de memoria, cada uno con 16 caractere
 - Mensaje 0: “INGRESA USUARIO”
 - Mensaje 1: “INGRESAR CLAVE”
 - Mensaje 2: “ABIERTO...”
-- Mensaje 3: “INTRUSO >:[”
+- Mensaje 3: “INTRUSO”
 
 El sistema monitorea cambios en la señal mns para actualizar el texto que se visualiza en la LCD y en la señal distancia para prender o apagar la pantalla. 
 
@@ -89,4 +99,6 @@ Finalmente, cuando distancia vuelve a ser 1, se empieza visualizar nuevamente el
 </p>
 
 ## Evidencias de implementación
+
+En esta sección se adjuntan videos de las pruebas que se realizaron con la LCD y el sensor de ultrasonido, como, los videos de las pruebas realizadas con el teclado matricial y la LCD.
 
