@@ -45,7 +45,7 @@ planteada para el funcionamiento del sistema, con el uso de los elementos anteri
 mencionados.
 
 <p align="center">
-  <img src="/home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/imagenes/Captura de pantalla -2025-12-14 00-18-04.png" width="600">
+  <img src="Captura de pantalla -2025-12-14 00-18-04.png" width="600">
 </p>
 
 De lo planteado, se logró implementar el sistema de apertura de la cerradura de forma remota por medio del protocolo UART, el uso del sensor de ultrasonido para activar el ciclo de visualizacion de mensajes en la LCD, y el ingreso de digitos por teclado y visualizarlos en la LCD. 
