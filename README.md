@@ -18,16 +18,28 @@ Sistema electrónico para la gestión de entradas a hogares.
 
 # Códigos
 
-* [Teclado y pantalla](/proyecto/teclado.v)
-* [Ultrasonido y pantalla](/proyecto/hcsr_04_distancia.v)
-* [Protocolo UART receptor](proyecto/uart_lock_control.v)
-* [Protocolo UART interpretar](proyecto/uart_rx.v)
+* [Servo](/proyecto/servo.v)
+
+Controla un servomotor que se utiliza como seguro de la  puerta. Dependiendo del valor del seleccionador de posición el pulso dentro del periodo de 20 ms será de 1 ms (0°) o 2 ms (90°). El servo interpreta el ancho del pulso y se mueve a la posición correspondiente.
+* [Sensor ultrasonido](/proyecto/hcsr_04_distancia.v)
+
+Describe el funcionamiento de un sensor de ultrasonido, al cual envía una señal trigger y recibe una señal echo. Cuando la distancia que mide es menor a 20 cm, su salida es 1. Cuando la distancia que mide es mayor a 20 cm, su salida es 0. 
+
+* [Teclado matricial](/proyecto/proyecto1/teclado.v)
+
+Implementa el escaneo de un teclado matricial 4x4 de membrana utilizando una máquina de estados. Cada 10 ms comienza un barrido de las filas. Mientras una fila está activa, se leen las columnas: si alguna pasa a  ser cero (debido a resistencias pull up), significa que una tecla ha sido presionada. Dependiendo de la combinación fila-columna, se asigna el valor correspondiente en un registro. El proceso se repite constantemente para detectar una tecla presionada.
+
+Se explican en el documento:
+* [Teclado y pantalla](/proyecto/proyecto1/lcd_tecl.v)
+* [Ultrasonido y pantalla](/proyecto/toplcdultra.v)
+* [Protocolo UART receptor](proyecto/uart_rx.v)
+* [Protocolo UART interpretar](proyecto/uart_lock_control.v)
 * [Protocolo uart y servo](proyecto/uart_servo.v)
 
 # Documentación
 ## Descripción de la arquitectura
 
-De lo planteado, se logró implementar el sistema de apertura de la cerradura de forma remota por medio del protocolo UART
+De lo planteado, se logró implementar el sistema de apertura de la cerradura de forma remota por medio del protocolo UART.
 
 La comunicación inicia con el módulo uart_rx, encargado de recibir la información serial proveniente del pin RX siguiendo el protocolo UART estándar. Este módulo sincroniza la señal de entrada, detecta el bit de START, recibe los 8 bits de datos, detecta el bit de STOP y, una vez completado el proceso, entrega el byte recibido junto con una señal de dato válido. De esta manera, convierte la comunicación serial en datos que pueden ser usados por el resto del sistema.
 
@@ -44,6 +56,8 @@ A continuación se describen gráficamente los módulos utilizados, indicando ú
 <p align="center">
   <img src="imagenes/DiagramaArq.png" width="600">
 </p>
+
+
 
 ## Simulaciones
 
@@ -102,3 +116,17 @@ Finalmente, cuando distancia vuelve a ser 1, se empieza visualizar nuevamente el
 
 En esta sección se adjuntan videos de las pruebas que se realizaron con la LCD y el sensor de ultrasonido, como, los videos de las pruebas realizadas con el teclado matricial y la LCD.
 
+### LCD y sensor ultrasonido 
+
+El módulo [“topultralcd”](/proyecto/toplcdultra.v) interconecta el sensor ultrasonidp con el controlador del LCD. Para ello, instancia el módulo hcsr04_distancia, del cual obtiene la señal alt, que indica si existe un objeto a menos de 20 cm. Esta señal se conecta directamente a la entrada distancia del módulo mensaje_Off_LCD, permitiendo que el comportamiento del display dependa de la detección de la presencia de una persona.
+
+Video:
+
+### LCD y teclado matricial
+El módulo [“lcd_tecl”](/proyecto/proyecto1/lcd_tecl.v) permite el ingreso de datos utilizando el teclado y que sea posible su visualización en el display. Interconecta los módulos de teclado y LCD_controller.
+
+Dentro de este módulo se incluyeron bloques de antirrebote, los cuales se encargan de filtrar las señales de las columnas del teclado y evitar errores causados por el rebote mecánico de las teclas.
+
+El sistema obtiene el valor de la tecla presionada y lo envía al controlador del LCD junto con la señal de selección de mensaje.
+
+Video:
