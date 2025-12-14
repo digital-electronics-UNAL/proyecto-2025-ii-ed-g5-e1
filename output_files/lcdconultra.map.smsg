@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at mensaje_Off_LCD.v(160): always construct contains both blocking and non-blocking assignments File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/mensaje_Off_LCD.v Line: 160
+Warning (10268): Verilog HDL information at mensaje_Off_LCD.v(158): always construct contains both blocking and non-blocking assignments File: /home/alejandro/github-classroom/digital-electronics-UNAL/proyecto-2025-ii-ed-g5-e1/proyecto/mensaje_Off_LCD.v Line: 158

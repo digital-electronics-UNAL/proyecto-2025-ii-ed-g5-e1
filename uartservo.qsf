@@ -77,4 +77,8 @@ set_location_assignment PIN_91 -to rst
 set_location_assignment PIN_30 -to rx_pin
 set_location_assignment PIN_28 -to servo_pwm
 set_location_assignment PIN_141 -to buzzer
+set_global_assignment -name POWER_USE_INPUT_FILES ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name POWER_INPUT_FILE_NAME uartservo.vcd -section_id uartservo.vcd
+set_instance_assignment -name POWER_READ_INPUT_FILE uartservo.vcd -to uart_servo
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
